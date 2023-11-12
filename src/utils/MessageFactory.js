@@ -7,6 +7,7 @@ import { ERROR_MESSAGE, MESSAGE } from '../constants/index.js';
 const getErrorMessage = (error) => {
   const { header, footer } = ERROR_MESSAGE;
   return `${header}${error}${footer}`;
+};
 const getReservationErrorMessage = () => {
   const reservation = ERROR_MESSAGE.reservation;
   const reservationError = `${reservation.basic}${reservation.range}`;

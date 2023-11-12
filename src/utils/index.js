@@ -5,14 +5,18 @@ import {
   getMenuErrorMessage,
   getReservationErrorMessage,
 } from './MessageFactory.js';
-import { isSuitableForNumber } from './Validate.js';
+import {
+  isSuitableForDate,
+  testRegExp,
+} from './Validate.js';
 export {
   freezeObject,
   freezeFood,
   freezeFoodType,
   getErrorMessage,
   getEventPreviewMessage,
-  isSuitableForNumber,
   getMenuErrorMessage,
   getReservationErrorMessage,
+  isSuitableForDate,
+  testRegExp,
 };

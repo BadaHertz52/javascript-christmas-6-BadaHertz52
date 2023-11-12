@@ -1,0 +1,3 @@
+const NUMBER_REGEX_PATTERN = '[0-9][12][0-9]3[01]';
+
+export { NUMBER_REGEX_PATTERN };

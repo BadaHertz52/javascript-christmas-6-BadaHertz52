@@ -5,7 +5,7 @@ import {
   QUERY,
 } from './Message.js';
 import { MENUS, FOOD_ARRAY, FOOD_TYPE } from './Menu.js';
-
+import { NUMBER_REGEX_PATTERN } from './RegexPattern.js';
 import {
   DISCOUNT_SIGN,
   FOOD_DELIMITER,
@@ -14,12 +14,14 @@ import {
   MONEY_UNIT,
   THRESHOLD,
 } from './Rule.js';
+
 export {
   DISCOUNT_SIGN,
   FOOD_ARRAY,
   FOOD_DELIMITER,
   FOOD_TYPE,
   ERROR_MESSAGE,
+  NUMBER_REGEX_PATTERN,
   MENUS,
   MENU_DELIMITER,
   MENU_UNIT,

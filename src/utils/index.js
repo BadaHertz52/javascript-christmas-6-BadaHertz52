@@ -4,7 +4,7 @@ import {
   getEventPreviewMessage,
   getOutputHeader,
 } from './MessageFactory.js';
-
+import { isSuitableForNumber } from './Validate.js';
 export {
   freezeObject,
   freezeFood,
@@ -12,4 +12,5 @@ export {
   getErrorMessage,
   getEventPreviewMessage,
   getOutputHeader,
+  isSuitableForNumber,
 };

@@ -1,3 +1,4 @@
+import CustomError from './CustomError.js';
 import ReservationDate from './ReservationDate.js';
 
-export { ReservationDate };
+export { CustomError, ReservationDate };

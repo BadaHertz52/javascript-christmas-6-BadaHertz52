@@ -7,109 +7,27 @@ const FOOD_TYPE = freezeObject({
 
   beverage: freezeFoodType('음료', 'beverage'),
 });
-
 const MENUS = freezeObject(
   new Map([
     //애피타이저
-    [
-      '양송이스푸',
-      freezeFood({
-        food: '양송이스푸',
-        type: FOOD_TYPE.appetizer,
-        price: 6000,
-      }),
-    ],
-    [
-      '타파스',
-      freezeFood({
-        food: '타파스',
-        type: FOOD_TYPE.appetizer,
-        price: 5500,
-      }),
-    ],
-    [
-      '시저샐러드',
-      freezeFood({
-        food: '시저샐러드',
-        type: FOOD_TYPE.appetizer,
-        price: 8000,
-      }),
-    ],
+    ['양송이스푸', freezeFood('양송이스푸', FOOD_TYPE.appetizer.eng, 6000)],
+    ['타파스', freezeFood('타파스', FOOD_TYPE.appetizer.eng, 5500)],
+    ['시저샐러드', freezeFood('시저샐러드', FOOD_TYPE.appetizer.eng, 8000)],
     //main
-    [
-      '티본스테이크',
-      freezeFood({
-        food: '티본스테이크',
-        type: FOOD_TYPE.main,
-        price: 55000,
-      }),
-    ],
-    [
-      '바비큐립',
-      freezeFood({
-        food: '바비큐립',
-        type: FOOD_TYPE.main,
-        price: 54000,
-      }),
-    ],
-    [
-      '해산물파스타',
-      freezeFood({
-        food: '해산물파스타',
-        type: FOOD_TYPE.main,
-        price: 35000,
-      }),
-    ],
+    ['티본스테이크', freezeFood('티본스테이크', FOOD_TYPE.main.eng, 55000)],
+    ['바비큐립', freezeFood('바비큐립', FOOD_TYPE.main.eng, 54000)],
+    ['해산물파스타', freezeFood('해산물파스타', FOOD_TYPE.main.eng, 35000)],
     [
       '크리스마스파스타',
-      freezeFood({
-        food: '크리스마스파스타',
-        type: FOOD_TYPE.main,
-        price: 25000,
-      }),
+      freezeFood('크리스마스파스타', FOOD_TYPE.main.eng, 25000),
     ],
     //디저트
-    [
-      '초코케이크',
-      freezeFood({
-        food: '초코케이크',
-        type: FOOD_TYPE.dessert,
-        price: 15000,
-      }),
-    ],
-    [
-      '아이스크림',
-      freezeFood({
-        food: '아이스크림',
-        type: FOOD_TYPE.dessert,
-        price: 5000,
-      }),
-    ],
+    ['초코케이크', freezeFood('초코케이크', FOOD_TYPE.dessert.eng, 15000)],
+    ['아이스크림', freezeFood('아이스크림', FOOD_TYPE.dessert.eng, 5000)],
     //음료
-    [
-      '제로콜라',
-      freezeFood({
-        food: '제로콜라',
-        type: FOOD_TYPE.beverage,
-        price: 3000,
-      }),
-    ],
-    [
-      '레드와인',
-      freezeFood({
-        food: '레드와인',
-        type: FOOD_TYPE.beverage,
-        price: 60000,
-      }),
-    ],
-    [
-      '샴페인',
-      freezeFood({
-        food: '샴페인',
-        type: FOOD_TYPE.beverage,
-        price: 25000,
-      }),
-    ],
+    ['제로콜라', freezeFood('제로콜라', FOOD_TYPE.beverage.eng, 3000)],
+    ['레드와인', freezeFood('레드와인', FOOD_TYPE.beverage.eng, 60000)],
+    ['샴페인', freezeFood('샴페인', FOOD_TYPE.beverage.eng, 25000)],
   ]),
 );
 

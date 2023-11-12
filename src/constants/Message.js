@@ -11,7 +11,7 @@ const ERROR_MESSAGE = freezeObject({
   menu: freezeObject({
     basic: '유효하지 않은 주문입니다.',
     maxNumber: `메뉴는 한번에 최대 ${THRESHOLD.numberOfMenu.max}개까지만 주문 가능합니다.`,
-    wrongOrderFormat: `메뉴 형식을 "메뉴${FOOD_DELIMITER}개수"(ex:해산물파스타-2)로 입력해주세요. (메뉴 개수는 최소 ${THRESHOLD.numberOfMenu.min} 이상 이여야 합니다.)`,
+    wrongOrderFormat: `메뉴 형식을 "메뉴${FOOD_DELIMITER}개수"(ex:해산물파스타-2)로 입력해주세요. (메뉴 개수는 최소 ${THRESHOLD.numberOfMenu.min} 이상 최대 ${THRESHOLD.numberOfMenu.max}까지 가능합니다.)`,
     noOnlyBeverage: '음료만 주문할 수 없습니다.',
   }),
 });

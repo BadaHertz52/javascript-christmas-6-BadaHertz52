@@ -6,7 +6,7 @@ import {
   getReservationErrorMessage,
 } from './MessageFactory.js';
 
-import { matchAllRegExp, testRegExp } from './RegExpFactory.js';
+import { testRegExp } from './RegexFactory.js';
 
 export {
   freezeObject,
@@ -16,6 +16,5 @@ export {
   getEventPreviewMessage,
   getMenuErrorMessage,
   getReservationErrorMessage,
-  matchAllRegExp,
   testRegExp,
 };

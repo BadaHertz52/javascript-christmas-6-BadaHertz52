@@ -16,7 +16,7 @@ const getReservationErrorMessage = () => {
 /**
  *
  * @param {"minNumber"|"maxNumber"|"noMenuDelimiter"|
- * "wrongType"|"noOnlyBeverage"} error  :메뉴 입력에 대한 오류 중 해당되는 오류로, ERROR_MESSAGE.menu의 property key 값
+ * "wrongOrderFormat"|"noOnlyBeverage"} error  :메뉴 입력에 대한 오류 중 해당되는 오류로, ERROR_MESSAGE.menu의 property key 값
  */
 const getMenuErrorMessage = (error) => {
   const menu = ERROR_MESSAGE.menu;

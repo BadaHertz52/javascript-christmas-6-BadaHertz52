@@ -18,6 +18,5 @@ const getEventPreviewMessage = (date) => {
   return `${header}${date}${footer}`;
 };
 
-const getOutputHeader = (string) => `<${string}>`;
 
 export { getErrorMessage, getEventPreviewMessage, getOutputHeader };

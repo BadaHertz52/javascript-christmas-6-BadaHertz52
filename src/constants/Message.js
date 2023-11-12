@@ -1,4 +1,4 @@
-import { freezeObject, getOutputHeader } from '../utils/index.js';
+import { freezeObject } from '../utils/index.js';
 import { FOOD_DELIMITER, MENU_DELIMITER, THRESHOLD } from './Rule.js';
 
 const ERROR_MESSAGE = freezeObject({
@@ -7,14 +7,13 @@ const ERROR_MESSAGE = freezeObject({
   reservation: freezeObject({
     basic: '유효하지 않은 날짜입니다.',
     range: '1이상 31이하의 숫자만 가능합니다.',
-    type: '숫자가 아닌 다른 형식은 입력할 수 없습니다.',
   }),
   menu: freezeObject({
     basic: '유효하지 않은 주문입니다.',
     minNumber: `메뉴의 개수는 ${THRESHOLD.numberOfMenu.min}개 이상이여야 합니다.`,
     maxNumber: `메뉴는 한번에 최대 ${THRESHOLD.numberOfMenu.max}개까지만 주문 가능합니다.`,
     noMenuDelimiter: `메뉴 사이는 "${MENU_DELIMITER}"를 사용해 메뉴를 구분해주세요.`,
-    wrongType: `메뉴 형식을 "메뉴${FOOD_DELIMITER}개수"(ex:해산물파스타-2)로 입력해주세요.`,
+    wrongOrderFormat: `메뉴 형식을 "메뉴${FOOD_DELIMITER}개수"(ex:해산물파스타-2)로 입력해주세요.`,
     noOnlyBeverage: '음료만 주문할 수 없습니다.',
   }),
 });
@@ -38,12 +37,12 @@ const MESSAGE = freezeObject({
 });
 
 const OUTPUT_HEADER_MESSAGE = freezeObject({
-  order: getOutputHeader('주문 메뉴'),
-  amountBeforeDiscount: getOutputHeader('할인 전 총주문 금액'),
-  benefitDetails: getOutputHeader('혜택 내역'),
-  totalBenefitAmount: getOutputHeader('총혜택 금액'),
-  amountAfterDiscount: getOutputHeader('할인 후 예상 결제 금액'),
-  badge: getOutputHeader('12월 이벤트 배지'),
+  order: '<주문 메뉴>',
+  amountBeforeDiscount: '<할인 전 총주문 금액>',
+  benefitDetails: '<혜택 내역>',
+  totalBenefitAmount: '<총혜택 금액>',
+  amountAfterDiscount: '<할인 후 예상 결제 금액>',
+  badge: '<12월 이벤트 배지>',
 });
 
 export { ERROR_MESSAGE, MESSAGE, OUTPUT_HEADER_MESSAGE, QUERY };

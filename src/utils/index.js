@@ -2,7 +2,6 @@ import { freezeObject, freezeFood, freezeFoodType } from './Freeze.js';
 import {
   getErrorMessage,
   getEventPreviewMessage,
-  getOutputHeader,
 } from './MessageFactory.js';
 import { isSuitableForNumber } from './Validate.js';
 export {
@@ -11,6 +10,5 @@ export {
   freezeFoodType,
   getErrorMessage,
   getEventPreviewMessage,
-  getOutputHeader,
   isSuitableForNumber,
 };

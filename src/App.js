@@ -13,6 +13,9 @@ class App {
     const date = await InputController.getValidReservationDate();
     this.#reservation.date = date;
   }
+  async getOrder() {
+    const order = await InputController.getValidOrder();
+  }
 }
 
 export default App;

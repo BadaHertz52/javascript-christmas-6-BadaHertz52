@@ -5,7 +5,10 @@ import {
   QUERY,
 } from './Message.js';
 import { MENUS, FOOD_ARRAY, FOOD_TYPE } from './Menu.js';
-import { DATE_REGEX_PATTERN, FOOD_ORDER_PATTERN } from './RegexPattern.js';
+import {
+  DATE_REGEX_PATTERN,
+  FOOD_ORDER_REGEX_PATTERN,
+} from './RegexPattern.js';
 import {
   DISCOUNT_SIGN,
   FOOD_DELIMITER,
@@ -22,7 +25,7 @@ export {
   FOOD_TYPE,
   ERROR_MESSAGE,
   DATE_REGEX_PATTERN,
-  FOOD_ORDER_PATTERN,
+  FOOD_ORDER_REGEX_PATTERN,
   MENUS,
   MENU_DELIMITER,
   MENU_UNIT,

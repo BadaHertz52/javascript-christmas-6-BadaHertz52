@@ -9,9 +9,12 @@ class ReservationDate {
     this.validateDate(string);
     this.setDate(string);
   }
+  isSuitableForDate = (string) => {
+    return testRegExp(DATE_REGEX_PATTERN, string);
+  };
   validateDate(string) {
     const message = getReservationErrorMessage();
-    if (!isSuitableForDate(string))
+    if (!this.isSuitableForDate(string))
       new CustomError('reservation date error', message);
   }
   setDate(string) {

@@ -5,10 +5,9 @@ import {
   getMenuErrorMessage,
   getReservationErrorMessage,
 } from './MessageFactory.js';
-import {
-  isSuitableForDate,
-  testRegExp,
-} from './Validate.js';
+
+import { matchAllRegExp, testRegExp } from './RegExpFactory.js';
+
 export {
   freezeObject,
   freezeFood,
@@ -17,6 +16,6 @@ export {
   getEventPreviewMessage,
   getMenuErrorMessage,
   getReservationErrorMessage,
-  isSuitableForDate,
+  matchAllRegExp,
   testRegExp,
 };

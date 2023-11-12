@@ -7,10 +7,12 @@ const InputView = {
     return value;
   },
   async readDate() {
-    return await this.readInputValue(QUERY.reservationDate);
+    const date = await this.readInputValue(QUERY.reservationDate);
+    return date;
   },
   async readOrder() {
-    return await this.readInputValue(QUERY.order);
+    const order = await this.readInputValue(QUERY.order);
+    return order;
   },
 };
 

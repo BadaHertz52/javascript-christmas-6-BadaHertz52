@@ -1,5 +1,5 @@
 import { DATE_REGEX_PATTERN } from '../constants/RegexPattern.js';
-import { getReservationErrorMessage, testRegExp } from '../utils/index.js';
+import { getReservationDateErrorMessage, testRegExp } from '../utils/index.js';
 import { CustomError } from './index.js';
 
 class ReservationDate {
@@ -11,7 +11,7 @@ class ReservationDate {
     return testRegExp(DATE_REGEX_PATTERN, string);
   }
   #validateDate(string) {
-    const message = getReservationErrorMessage();
+    const message = getReservationDateErrorMessage();
     if (!this.#isSuitableForDate(string))
       new CustomError('reservation date error', message);
   }

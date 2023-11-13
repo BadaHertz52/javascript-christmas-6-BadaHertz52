@@ -3,10 +3,9 @@ import { isInEventDays, getNumberOfEventTargetMenu } from './EventUtils.js';
 import { freezeObject, freezeFood, freezeFoodType } from './Freeze.js';
 
 import {
-  getErrorMessage,
   getEventPreviewMessage,
-  getMenuErrorMessage,
-  getReservationErrorMessage,
+  getOrderErrorMessage,
+  getReservationDateErrorMessage,
 } from './MessageFactory.js';
 
 import { testRegExp } from './RegexFactory.js';
@@ -15,11 +14,10 @@ export {
   freezeObject,
   freezeFood,
   freezeFoodType,
-  getErrorMessage,
   getEventPreviewMessage,
   getNumberOfEventTargetMenu,
-  getMenuErrorMessage,
-  getReservationErrorMessage,
+  getOrderErrorMessage,
+  getReservationDateErrorMessage,
   isInEventDays,
   testRegExp,
 };

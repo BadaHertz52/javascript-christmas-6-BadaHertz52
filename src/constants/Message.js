@@ -4,18 +4,8 @@ import { FOOD_DELIMITER, THRESHOLD } from './Rule.js';
 const ERROR_MESSAGE = freezeObject({
   header: '[ERROR]',
   footer: '다시 입력해주세요.',
-  reservation: freezeObject({
-    basic: '유효하지 않은 날짜입니다.',
-    range: `${THRESHOLD.reservationDate.min}이상 ${THRESHOLD.reservationDate.max}이하의 숫자만 가능합니다.`,
-  }),
-  menu: freezeObject({
-    basic: '유효하지 않은 주문입니다.',
-    duplicate: '메뉴를 중복해 입력할 수 없습니다.',
-    maxNumber: `메뉴는 한번에 최대 ${THRESHOLD.numberOfMenu.max}개까지만 주문 가능합니다.`,
-    none: '메뉴판에 있는 메뉴를 입력해주세요',
-    noOnlyBeverage: '음료만 주문할 수 없습니다.',
-    wrongOrderFormat: `메뉴 형식을 "메뉴${FOOD_DELIMITER}개수"(ex:해산물파스타-2)로 입력해주세요. (메뉴 개수는 최소 ${THRESHOLD.numberOfMenu.min} 이상 최대 ${THRESHOLD.numberOfMenu.max}까지 가능합니다.)`,
-  }),
+  reservationDate: '유효하지 않은 날짜입니다.',
+  order: '유효하지 않은 주문입니다.',
 });
 
 const QUERY = freezeObject({

@@ -1,6 +1,6 @@
 import { Calculator, InputController } from './controllers/index.js';
 import Money from './models/Money.js';
-import OutputView from './views/OutputView.js';
+import { OutputView } from './views/index.js';
 
 class App {
   #reservation = {
@@ -28,7 +28,7 @@ class App {
     OutputView.printOrder(this.#reservation.order);
     //할인 전 총 금액
     this.#setAmountBeforeDiscount();
-    OutputView.printAmount(
+    OutputController.controlPrintAmount(
       'amountBeforeDiscount',
       this.#reservation.amountOfBeforeDiscount,
     );

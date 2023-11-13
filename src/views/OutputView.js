@@ -1,15 +1,18 @@
 import { Console } from '@woowacourse/mission-utils';
 import {
+  GIFT,
   MENU_UNIT,
   MESSAGE,
   OUTPUT_HEADER_MESSAGE,
 } from '../constants/index.js';
-import { Money } from '../models/index.js';
 import { getEventPreviewMessage } from '../utils/index.js';
 
 const OutputView = {
   print(string) {
     Console.print(string);
+  },
+  printBlankLine() {
+    this.print('');
   },
   printGreetings() {
     this.print(MESSAGE.greetings);
@@ -35,23 +38,23 @@ const OutputView = {
   },
   /**
    *
-   * @param {number} money
-   */
-  printMoney(money) {
-    this.print(new Money(money).getValue());
-  },
-  printBlankLine() {
-    this.print('');
-  },
-  /**
-   *
    * @param {'amountBeforeDiscount'|'totalBenefitAmount'|'amountAfterDiscount'} type
    * @param {*} money
    */
   printAmount(type, money) {
     this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE[type]);
-    this.printMoney(money);
+    this.print(money);
+  },
+  printBenefits(benefitMessages) {
+    this.printBlankLine();
+    this.print(OUTPUT_HEADER_MESSAGE.benefits);
+    benefitMessages.forEach((v) => this.print(v));
+  },
+  printGift() {
+    this.printBlankLine();
+    this.print(OUTPUT_HEADER_MESSAGE.gift);
+    this.print(GIFT);
   },
 };
 

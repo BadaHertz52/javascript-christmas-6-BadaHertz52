@@ -5,6 +5,13 @@ const BADGES = {
   star: '🌟-star',
   tree: '🎄-tree',
 };
+const EVENT_NAMES = {
+  xmasDDayEvent: '크리스마스 디데이 할인',
+  weekDayEvent: '평일 할인',
+  weekendEvent: '주말 할인',
+  specialEvent: '특별 할인',
+  giftEvent: '증정 이벤트',
+};
 const EVENT_THRESHOLD = freezeObject({
   minPurchaseForGift: 120000,
   minPurchaseForEvent: 10000,
@@ -70,6 +77,7 @@ export {
   DAYS,
   GIFT,
   GIFT_EVENT,
+  EVENT_NAMES,
   EVENT_THRESHOLD,
   EVENT_YEAR_AND_MONTH,
   NONE_EVENT_BENEFIT,

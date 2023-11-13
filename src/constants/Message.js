@@ -1,5 +1,4 @@
 import { freezeObject } from '../utils/index.js';
-import { FOOD_DELIMITER, THRESHOLD } from './Rule.js';
 
 const ERROR_MESSAGE = freezeObject({
   header: '[ERROR]',
@@ -29,7 +28,8 @@ const MESSAGE = freezeObject({
 const OUTPUT_HEADER_MESSAGE = freezeObject({
   order: '<주문 메뉴>',
   amountBeforeDiscount: '<할인 전 총주문 금액>',
-  benefitDetails: '<혜택 내역>',
+  gift: '<증정 메뉴>',
+  benefits: '<혜택 내역>',
   totalBenefitAmount: '<총혜택 금액>',
   amountAfterDiscount: '<할인 후 예상 결제 금액>',
   badge: '<12월 이벤트 배지>',

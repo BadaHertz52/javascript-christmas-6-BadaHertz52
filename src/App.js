@@ -1,5 +1,10 @@
-import { Calculator, InputController } from './controllers/index.js';
-import Money from './models/Money.js';
+import {
+  Calculator,
+  EventController,
+  InputController,
+  OutputController,
+} from './controllers/index.js';
+
 import { OutputView } from './views/index.js';
 
 class App {
@@ -8,16 +13,8 @@ class App {
     order: undefined,
     amountOfBeforeDiscount: undefined,
     amountOfAfterDiscount: undefined,
+    totalBenefitAmount: undefined,
     badge: undefined,
-  };
-
-  #benefit = {
-    xmasDDayEvent: undefined, // undefined|number(할인금액)
-    weekDayEvent: undefined,
-    weekendEvent: undefined,
-    gitEvent: undefined,
-    specialEvent: undefined,
-    totalDiscount: undefined,
   };
   async run() {
     //예약 방문일
@@ -31,6 +28,18 @@ class App {
     OutputController.controlPrintAmount(
       'amountBeforeDiscount',
       this.#reservation.amountOfBeforeDiscount,
+    );
+    //이벤트 적용
+    const benefits = this.#getEventBenefits();
+    //이벤트 출력
+    OutputController.controlPrintGift(benefits);
+    OutputController.controlPrintBenefits(benefits);
+    // 이벤트 할인 금액
+    this.#setTotalBenefitAmount(benefits);
+    OutputController.controlPrintAmount(
+      'totalBenefitAmount',
+      this.#reservation.totalBenefitAmount,
+      true,
     );
   }
 
@@ -48,8 +57,20 @@ class App {
     );
     this.#reservation.amountOfBeforeDiscount = value;
   }
-  getAmountBeforeDiscount() {
-    return this.#reservation.amountOfBeforeDiscount;
+  #getEventBenefits() {
+    const { date, order, amountOfBeforeDiscount } = this.#reservation;
+    return new EventController(
+      date,
+      order,
+      amountOfBeforeDiscount,
+    ).getBenefits();
+  }
+  #setTotalBenefitAmount(benefit) {
+    this.#reservation.totalBenefitAmount =
+      new Calculator().calculateTotalBenefitAmount(benefit);
+  }
+  getData() {
+    return this.#reservation;
   }
 }
 

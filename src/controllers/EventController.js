@@ -1,4 +1,4 @@
-import { NONE_EVENT_BENEFIT, EVENT_THRESHOLD } from '../constants/index.js';
+import { EVENT_THRESHOLD, EVENT_NAMES } from '../constants/index.js';
 import {
   GiftEvent,
   SpecialEvent,
@@ -9,53 +9,51 @@ import {
 
 class EventController {
   #isEventApplied = false;
-  #benefit = {
-    xmasDDayEvent: undefined, // undefined|number(할인금액)||"없음"
-    weekDayEvent: undefined,
-    weekendEvent: undefined,
-    giftEvent: undefined,
-    specialEvent: undefined,
-    totalDiscount: undefined,
-  };
+  #benefits = [];
   constructor(date, order, amountOfBeforeDiscount) {
     this.#isEventTarget(amountOfBeforeDiscount);
     if (this.#isEventApplied) {
-      this.#setXmasDDayDiscount(date);
-      this.#setWeekDayDiscount(date, order);
-      this.#setWeekendDiscount(date, order);
-      this.#setSpecialDiscount(date);
-      this.#setGiftBenefit(amountOfBeforeDiscount);
+      this.#getXmasDDayDiscount(date);
+      this.#getWeekDayDiscount(date, order);
+      this.#getWeekendDiscount(date, order);
+      this.#getSpecialDiscount(date);
+      this.#getGiftBenefit(amountOfBeforeDiscount);
     }
   }
+  //이벤트 적용 여부 판단
   #isEventTarget(amountBeforeDiscount) {
     if (amountBeforeDiscount >= EVENT_THRESHOLD.minPurchaseForEvent)
       this.#isEventApplied = true;
   }
-  #changeDiscountValue(discount) {
-    return !discount ? NONE_EVENT_BENEFIT : discount;
+  #addBenefit(discount, event) {
+    if (discount) this.#benefits.push({ event: event, discount: discount });
   }
-  #setXmasDDayDiscount(date) {
+  #getXmasDDayDiscount(date) {
     const discount = new XmasDDayEvent(date).getDiscount();
-    this.#benefit.xmasDDayEvent = this.#changeDiscountValue(discount);
+    this.#addBenefit(discount, EVENT_NAMES.xmasDDayEvent);
   }
-  #setWeekDayDiscount(date, order) {
+  #getWeekDayDiscount(date, order) {
     const discount = new WeekDayEvent(date, order).getDiscount();
-    this.#benefit.weekDayEvent = this.#changeDiscountValue(discount);
+    this.#addBenefit(discount, EVENT_NAMES.weekDayEvent);
   }
-  #setWeekendDiscount(date, order) {
+  #getWeekendDiscount(date, order) {
     const discount = new WeekendEvent(date, order).getDiscount();
-    this.#benefit.weekendEvent = this.#changeDiscountValue(discount);
+    this.#addBenefit(discount, EVENT_NAMES.weekendEvent);
   }
-  #setSpecialDiscount(date) {
+  #getSpecialDiscount(date) {
     const discount = new SpecialEvent(date).getDiscount();
-    this.#benefit.specialEvent = this.#changeDiscountValue(discount);
+    this.#addBenefit(discount, EVENT_NAMES.specialEvent);
   }
-  #setGiftBenefit(amountBeforeDiscount) {
+  #getGiftBenefit(amountBeforeDiscount) {
     const gift = new GiftEvent(amountBeforeDiscount).getGift();
-    this.#benefit.giftEvent = gift;
+    this.#addBenefit(gift, EVENT_NAMES.giftEvent);
   }
-  getBenefit() {
-    return this.#benefit;
+  /**
+   *
+   * @returns {{ event: string, benefit: number|string }[]}
+   */
+  getBenefits() {
+    return this.#benefits;
   }
 }
 

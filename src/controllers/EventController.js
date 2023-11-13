@@ -2,6 +2,7 @@ import { NONE_EVENT_BENEFIT, EVENT_THRESHOLD } from '../constants/index.js';
 import { WeekDayEvent, WeekendEvent, XmasDDayEvent } from '../models/index.js';
 
 class EventController {
+  #isEventApplied = false;
   #benefit = {
     xmasDDayEvent: undefined, // undefined|number(할인금액)||"없음"
     weekDayEvent: undefined,
@@ -12,12 +13,15 @@ class EventController {
   };
   constructor(date, order, amountOfBeforeDiscount) {
     this.#isEventTarget(amountOfBeforeDiscount);
-    this.#setXmasDDayDiscount(date);
-    this.#setWeekDayDiscount(date, order);
-    this.#setWeekendDiscount(date, order);
+    if (this.#isEventApplied) {
+      this.#setXmasDDayDiscount(date);
+      this.#setWeekDayDiscount(date, order);
+      this.#setWeekendDiscount(date, order);
+    }
   }
   #isEventTarget(amountBeforeDiscount) {
     if (amountBeforeDiscount >= EVENT_THRESHOLD.minPurchaseForEvent)
+      this.#isEventApplied = true;
   }
   #changeDiscountValue(discount) {
     return !discount ? NONE_EVENT_BENEFIT : discount;

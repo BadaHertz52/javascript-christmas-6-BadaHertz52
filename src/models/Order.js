@@ -1,12 +1,11 @@
 import {
   FOOD_ARRAY,
-  FOOD_DELIMITER,
   FOOD_ORDER_REGEX_PATTERN,
   FOOD_TYPE,
   MENU_DELIMITER,
   THRESHOLD,
 } from '../constants/index.js';
-import { testRegExp, getMenuErrorMessage } from '../utils/index.js';
+import { testRegExp, getOrderErrorMessage } from '../utils/index.js';
 import { CustomError, OrderedMenu } from './index.js';
 
 class Order {
@@ -24,6 +23,7 @@ class Order {
    * 주문한 음식명 배열
    */
   #orderedFoods;
+
   constructor(string) {
     this.#setFormatArray(string);
     this.#validateOrderFormat();
@@ -48,10 +48,12 @@ class Order {
       testRegExp(FOOD_ORDER_REGEX_PATTERN, v),
     );
   }
+  #makeError(errorContent) {
+    const errorMessage = getOrderErrorMessage();
+    new CustomError('order error:' + errorContent, errorMessage);
+  }
   #validateOrderFormat() {
-    const errorMessage = getMenuErrorMessage('wrongOrderFormat');
-    if (!this.#isSuitableOrderFormat())
-      new CustomError('order error', errorMessage);
+    if (!this.#isSuitableOrderFormat()) this.#makeError('order format');
   }
   getNumberOfMenu() {
     return this.#list.reduce(
@@ -61,22 +63,21 @@ class Order {
   }
   #validateNumberOfMenu() {
     if (this.getNumberOfMenu() > THRESHOLD.numberOfMenu.max)
-      new CustomError('order error', getMenuErrorMessage('maxNumber'));
+      this.#makeError('number of menu');
   }
   #isInMenu() {
     const pass = this.#orderedFoods.every((v) => FOOD_ARRAY.includes(v));
-    if (!pass) new CustomError('order error', getMenuErrorMessage('none'));
+    if (!pass) this.#makeError('none');
   }
   #isDuplicate() {
     if (new Set(this.#orderedFoods).size !== this.#orderedFoods.length)
-      new CustomError('order error', getMenuErrorMessage('duplicate'));
+      this.#makeError('duplicate');
   }
   #hasOnlyBeverage() {
     const isOnlyBeverage = this.#list.every(
       (v) => v.type === FOOD_TYPE.beverage,
     );
-    if (isOnlyBeverage)
-      new CustomError('order error', getMenuErrorMessage('noOnlyBeverage'));
+    if (isOnlyBeverage) this.#makeError('only beverage');
   }
   getList() {
     return this.#list;

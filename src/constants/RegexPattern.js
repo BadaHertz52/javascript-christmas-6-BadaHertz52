@@ -1,4 +1,4 @@
-import { FOOD_DELIMITER, THRESHOLD } from './index.js';
+import { FOOD_DELIMITER, THRESHOLD } from './Rule.js';
 
 const DATE_REGEX_PATTERN = '^[1-9]{1}$|^[1-2][0-9]$|^[3][0-1]$';
 

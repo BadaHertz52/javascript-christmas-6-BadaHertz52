@@ -1,9 +1,9 @@
 import { Console } from '@woowacourse/mission-utils';
 import {
-  DISCOUNT_SIGN,
+  GIFT,
   MENU_UNIT,
   MESSAGE,
-  MONEY_UNIT,
+  NONE,
   OUTPUT_HEADER_MESSAGE,
 } from '../constants/index.js';
 import { getEventPreviewMessage } from '../utils/index.js';
@@ -12,11 +12,16 @@ const OutputView = {
   print(string) {
     Console.print(string);
   },
+  printBlankLine() {
+    this.print('');
+  },
   printGreetings() {
     this.print(MESSAGE.greetings);
   },
   printEventPreview(date) {
+    this.printBlankLine();
     this.print(getEventPreviewMessage(date));
+    this.printBlankLine();
   },
   printEventTarget() {
     this.print(MESSAGE.event.target);
@@ -26,22 +31,34 @@ const OutputView = {
    * @param {{food:string, type:string, price:number ,numberOfOrder: number}[]} order : ;
    */
   printOrder(order) {
+    this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE.order);
     order.forEach((v) =>
       this.print(`${v.food} ${v.numberOfOrder}${MENU_UNIT}`),
     );
   },
-  printMoney(money, isDiscount = false) {
-    this.print(`${isDiscount ? DISCOUNT_SIGN : ''}${money}${MONEY_UNIT}`);
-  },
   /**
    *
-   * @param {"amountBeforeDiscount"|"totalBenefitAmount"|amountAfterDiscount"} type
+   * @param {'amountBeforeDiscount'|'totalBenefitAmount'|'amountAfterDiscount'} type
    * @param {*} money
    */
-  printAmount(type, money) {
+  printAmount(type, amount) {
+    this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE[type]);
-    this.printMoney(money);
+    this.print(amount);
+  },
+  printNone() {
+    this.print(NONE);
+  },
+  printBenefits(benefitMessages) {
+    this.printBlankLine();
+    this.print(OUTPUT_HEADER_MESSAGE.benefits);
+    benefitMessages.forEach((v) => this.print(v));
+  },
+  printGift(isGift) {
+    this.printBlankLine();
+    this.print(OUTPUT_HEADER_MESSAGE.gift);
+    this.print(isGift ? GIFT : NONE);
   },
 };
 

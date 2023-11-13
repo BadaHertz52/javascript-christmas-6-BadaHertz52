@@ -6,11 +6,7 @@ import {
   MONEY_UNIT,
   OUTPUT_HEADER_MESSAGE,
 } from '../constants/index.js';
-import {
-  getEventPreviewMessage,
-  getMenuErrorMessage,
-  getReservationErrorMessage,
-} from '../utils/index.js';
+import { getEventPreviewMessage } from '../utils/index.js';
 
 const OutputView = {
   print(string) {
@@ -27,11 +23,13 @@ const OutputView = {
   },
   /**
    *
-   * @param {{food:string, type:string, price:number ,numberOfFood: number}[]} order : ;
+   * @param {{food:string, type:string, price:number ,numberOfOrder: number}[]} order : ;
    */
   printOrder(order) {
     this.print(OUTPUT_HEADER_MESSAGE.order);
-    order.forEach((v) => this.print(`${v.food} ${v.numberOfFood}${MENU_UNIT}`));
+    order.forEach((v) =>
+      this.print(`${v.food} ${v.numberOfOrder}${MENU_UNIT}`),
+    );
   },
   printMoney(money, isDiscount = false) {
     this.print(`${isDiscount ? DISCOUNT_SIGN : ''}${money}${MONEY_UNIT}`);

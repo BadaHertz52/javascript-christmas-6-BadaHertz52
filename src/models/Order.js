@@ -2,6 +2,7 @@ import {
   FOOD_ARRAY,
   FOOD_DELIMITER,
   FOOD_ORDER_REGEX_PATTERN,
+  FOOD_TYPE,
   MENU_DELIMITER,
   THRESHOLD,
 } from '../constants/index.js';
@@ -31,6 +32,7 @@ class Order {
     this.#validateNumberOfMenu();
     this.#isInMenu();
     this.#isDuplicate();
+    this.#hasOnlyBeverage();
   }
   #setFormatArray(string) {
     this.#formatArray = string.split(MENU_DELIMITER);
@@ -69,7 +71,16 @@ class Order {
     if (new Set(this.#orderedFoods).size !== this.#orderedFoods.length)
       new CustomError('order error', getMenuErrorMessage('duplicate'));
   }
-  // 음로만 X
+  #hasOnlyBeverage() {
+    const isOnlyBeverage = this.#list.every(
+      (v) => v.type === FOOD_TYPE.beverage,
+    );
+    if (isOnlyBeverage)
+      new CustomError('order error', getMenuErrorMessage('noOnlyBeverage'));
+  }
+  getList() {
+    return this.#list;
+  }
 }
 
 export default Order;

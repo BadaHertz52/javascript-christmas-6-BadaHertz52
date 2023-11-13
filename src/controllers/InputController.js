@@ -20,8 +20,7 @@ const InputController = {
     while (!order) {
       try {
         const value = await InputView.readOrder();
-        new Order(value);
-        order = value;
+        order = new Order(value).getList();
       } catch (error) {
         OutputView.print(error.message);
       }

@@ -30,6 +30,7 @@ class Order {
     this.#setOrderedFoods();
     this.#validateNumberOfMenu();
     this.#isInMenu();
+    this.#isDuplicate();
   }
   #setFormatArray(string) {
     this.#formatArray = string.split(MENU_DELIMITER);
@@ -40,7 +41,6 @@ class Order {
   #setOrderedFoods() {
     this.#orderedFoods = this.#list.map((v) => v.food);
   }
-  //주문 형식 : food-개수 , MENU_DELIMITER 을 통한 메뉴 구분
   #isSuitableOrderFormat() {
     return this.#formatArray.every((v) =>
       testRegExp(FOOD_ORDER_REGEX_PATTERN, v),
@@ -57,18 +57,18 @@ class Order {
       0,
     );
   }
-  //메뉴 개수 :  최대 20
   #validateNumberOfMenu() {
     if (this.getNumberOfMenu() > THRESHOLD.numberOfMenu.max)
       new CustomError('order error', getMenuErrorMessage('maxNumber'));
   }
-
-  //메뉴 판에 있는 메뉴
   #isInMenu() {
     const pass = this.#orderedFoods.every((v) => FOOD_ARRAY.includes(v));
     if (!pass) new CustomError('order error', getMenuErrorMessage('none'));
   }
-  // 중복 메뉴 X
+  #isDuplicate() {
+    if (new Set(this.#orderedFoods).size !== this.#orderedFoods.length)
+      new CustomError('order error', getMenuErrorMessage('duplicate'));
+  }
   // 음로만 X
 }
 

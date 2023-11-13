@@ -15,9 +15,8 @@ const getReservationErrorMessage = () => {
 };
 /**
  *
- * @param {"maxNumber"|"noMenuDelimiter"|
- * "wrongOrderFormat"|"noOnlyBeverage"
- * |"none"} error  :메뉴 입력에 대한 오류 중 해당되는 오류로, ERROR_MESSAGE.menu의 property key 값
+ * @param {"duplicate"|"maxNumber"|"noMenuDelimiter"|"none"|"noOnlyBeverage"
+ * |"wrongOrderFormat"} error  :메뉴 입력에 대한 오류 중 해당되는 오류로, ERROR_MESSAGE.menu의 property key 값
  */
 const getMenuErrorMessage = (error) => {
   const menu = ERROR_MESSAGE.menu;

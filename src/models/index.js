@@ -3,5 +3,14 @@ import Order from './Order.js';
 import OrderedMenu from './OrderedMenu.js';
 import Money from './Money.js';
 import ReservationDate from './ReservationDate.js';
-
-export { CustomError, Order, OrderedMenu, Money, ReservationDate };
+import WeekDayEvent from './events/WeekDayEvent.js';
+import XmasDDayEvent from './events/XmasDDayEvent.js';
+export {
+  CustomError,
+  Order,
+  OrderedMenu,
+  Money,
+  ReservationDate,
+  WeekDayEvent,
+  XmasDDayEvent,
+};

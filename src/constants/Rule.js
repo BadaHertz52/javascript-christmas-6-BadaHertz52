@@ -14,7 +14,6 @@ const THRESHOLD = freezeObject({
   reservationDate: freezeObject({
     min: 1,
     max: 31,
-    type: 'number',
   }),
   badge: freezeObject({
     star: 5000,

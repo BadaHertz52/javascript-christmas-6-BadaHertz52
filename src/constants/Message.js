@@ -1,12 +1,12 @@
 import { freezeObject } from '../utils/index.js';
-import { FOOD_DELIMITER, MENU_DELIMITER, THRESHOLD } from './Rule.js';
+import { FOOD_DELIMITER, THRESHOLD } from './Rule.js';
 
 const ERROR_MESSAGE = freezeObject({
   header: '[ERROR]',
   footer: '다시 입력해주세요.',
   reservation: freezeObject({
     basic: '유효하지 않은 날짜입니다.',
-    range: '1이상 31이하의 숫자만 가능합니다.',
+    range: `${THRESHOLD.reservationDate.min}이상 ${THRESHOLD.reservationDate.max}이하의 숫자만 가능합니다.`,
   }),
   menu: freezeObject({
     basic: '유효하지 않은 주문입니다.',

@@ -12,12 +12,12 @@ class App {
   };
 
   #benefit = {
-    xMasDDayEvent: undefined, // undefined|number(할인금액)
+    xmasDDayEvent: undefined, // undefined|number(할인금액)
     weekDayEvent: undefined,
     weekendEvent: undefined,
     gitEvent: undefined,
     specialEvent: undefined,
-    totalAmount: undefined,
+    totalDiscount: undefined,
   };
   async run() {
     //예약 방문일

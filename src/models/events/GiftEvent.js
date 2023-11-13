@@ -2,7 +2,7 @@ import {
   EVENT_THRESHOLD,
   GIFT,
   GIFT_EVENT,
-  NONE_EVENT_BENEFIT,
+  NONE,
 } from '../../constants/index.js';
 
 class GiftEvent {
@@ -15,7 +15,7 @@ class GiftEvent {
       this.#isEventApplied = true;
   }
   getGift() {
-    return this.#isEventApplied ? GIFT_EVENT.discount : NONE_EVENT_BENEFIT;
+    return this.#isEventApplied ? GIFT_EVENT.discount : undefined;
   }
 }
 

@@ -3,6 +3,7 @@ import {
   GIFT,
   MENU_UNIT,
   MESSAGE,
+  NONE,
   OUTPUT_HEADER_MESSAGE,
 } from '../constants/index.js';
 import { getEventPreviewMessage } from '../utils/index.js';
@@ -41,20 +42,23 @@ const OutputView = {
    * @param {'amountBeforeDiscount'|'totalBenefitAmount'|'amountAfterDiscount'} type
    * @param {*} money
    */
-  printAmount(type, money) {
+  printAmount(type, amount) {
     this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE[type]);
-    this.print(money);
+    this.print(amount);
+  },
+  printNone() {
+    this.print(NONE);
   },
   printBenefits(benefitMessages) {
     this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE.benefits);
     benefitMessages.forEach((v) => this.print(v));
   },
-  printGift() {
+  printGift(isGift) {
     this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE.gift);
-    this.print(GIFT);
+    this.print(isGift ? GIFT : NONE);
   },
 };
 

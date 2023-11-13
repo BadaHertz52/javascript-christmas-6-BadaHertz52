@@ -26,5 +26,9 @@ const OutputController = {
     const amount = new Money(money, isDiscount && money).getValue();
     OutputView.printAmount(type, amount);
   },
+  controlPrintBadge(badge) {
+    const message = !badge ? NONE : `${badge.icon}:${badge.name}`;
+    OutputView.printBadge(message);
+  },
 };
 export default OutputController;

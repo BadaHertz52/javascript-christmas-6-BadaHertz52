@@ -4,6 +4,7 @@ import {
   InputController,
   OutputController,
 } from './controllers/index.js';
+import Badge from './models/Badge.js';
 
 import { OutputView } from './views/index.js';
 
@@ -47,6 +48,9 @@ class App {
       'amountAfterDiscount',
       this.#reservation.amountOfAfterDiscount,
     );
+    //배지
+    this.#setBadge();
+    OutputController.controlPrintBadge(this.#reservation.badge);
   }
 
   async #getReservationDate() {
@@ -83,8 +87,9 @@ class App {
         totalBenefitAmount,
       );
   }
-  getData() {
-    return this.#reservation;
+  #setBadge() {
+    const badge = new Badge(this.#reservation.totalBenefitAmount).getShape();
+    if (badge) this.#reservation.badge = badge;
   }
 }
 

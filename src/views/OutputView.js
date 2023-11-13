@@ -60,6 +60,11 @@ const OutputView = {
     this.print(OUTPUT_HEADER_MESSAGE.gift);
     this.print(isGift ? GIFT : NONE);
   },
+  printBadge(message) {
+    this.printBlankLine();
+    this.print(OUTPUT_HEADER_MESSAGE.badge);
+    this.print(message);
+  },
 };
 
 export default OutputView;

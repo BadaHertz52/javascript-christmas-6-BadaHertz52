@@ -1,8 +1,7 @@
+import Badge from './Badge.js';
+
 import CustomError from './CustomError.js';
-import Order from './Order.js';
-import OrderedMenu from './OrderedMenu.js';
-import Money from './Money.js';
-import ReservationDate from './ReservationDate.js';
+
 import {
   GiftEvent,
   SpecialEvent,
@@ -11,7 +10,16 @@ import {
   XmasDDayEvent,
 } from './events/index.js';
 
+import Order from './Order.js';
+
+import OrderedMenu from './OrderedMenu.js';
+
+import Money from './Money.js';
+
+import ReservationDate from './ReservationDate.js';
+
 export {
+  Badge,
   CustomError,
   Order,
   OrderedMenu,

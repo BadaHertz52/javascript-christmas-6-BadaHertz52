@@ -1,7 +1,4 @@
-import {
-  getReservationErrorMessage,
-  isSuitableForDate,
-} from '../utils/index.js';
+import { getReservationErrorMessage } from '../utils/index.js';
 import { CustomError } from './index.js';
 
 class ReservationDate {

@@ -11,7 +11,7 @@ class OrderedMenu {
     this.#food = food;
     this.#numberOfOrder = Number(number);
   }
-  getFoodData() {
+  getData() {
     return {
       ...MENUS.get(this.#food),
       numberOfOrder: this.#numberOfOrder,

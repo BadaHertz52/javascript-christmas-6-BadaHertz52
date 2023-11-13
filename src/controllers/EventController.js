@@ -1,5 +1,10 @@
 import { NONE_EVENT_BENEFIT, EVENT_THRESHOLD } from '../constants/index.js';
-import { WeekDayEvent, WeekendEvent, XmasDDayEvent } from '../models/index.js';
+import {
+  SpecialEvent,
+  WeekDayEvent,
+  WeekendEvent,
+  XmasDDayEvent,
+} from '../models/index.js';
 
 class EventController {
   #isEventApplied = false;
@@ -17,6 +22,7 @@ class EventController {
       this.#setXmasDDayDiscount(date);
       this.#setWeekDayDiscount(date, order);
       this.#setWeekendDiscount(date, order);
+      this.#setSpecialDiscount(date);
     }
   }
   #isEventTarget(amountBeforeDiscount) {
@@ -37,6 +43,10 @@ class EventController {
   #setWeekendDiscount(date, order) {
     const discount = new WeekendEvent(date, order).getDiscount();
     this.#benefit.weekendEvent = this.#changeDiscountValue(discount);
+  }
+  #setSpecialDiscount(date) {
+    const discount = new SpecialEvent(date).getDiscount();
+    this.#benefit.specialEvent = this.#changeDiscountValue(discount);
   }
   getBenefit() {
     return this.#benefit;

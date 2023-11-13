@@ -3,15 +3,20 @@ import Order from './Order.js';
 import OrderedMenu from './OrderedMenu.js';
 import Money from './Money.js';
 import ReservationDate from './ReservationDate.js';
-import WeekDayEvent from './events/WeekDayEvent.js';
-import WeekendEvent from './events/WeekendEvent.js';
-import XmasDDayEvent from './events/XmasDDayEvent.js';
+import {
+  SpecialEvent,
+  WeekDayEvent,
+  WeekendEvent,
+  XmasDDayEvent,
+} from './events/index.js';
+
 export {
   CustomError,
   Order,
   OrderedMenu,
   Money,
   ReservationDate,
+  SpecialEvent,
   WeekDayEvent,
   WeekendEvent,
   XmasDDayEvent,

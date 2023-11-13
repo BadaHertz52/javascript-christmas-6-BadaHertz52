@@ -33,17 +33,14 @@ const X_MAS_D_DAY_EVENT = {
     start: 1,
     end: 25,
   },
-  dates: [],
   initialDiscount: 1000,
   extraDiscount: 100,
-  target: 'amountOfAfterDiscount',
 };
 const WEEK_DAY_EVENT = {
   period: {
     ...EVENT_COMMON_PERIOD,
     days: ['sun', 'mon', 'tue', 'wed', 'thu'],
   },
-  dates: [],
   discount: 2023,
   target: FOOD_TYPE.dessert,
 };
@@ -52,7 +49,6 @@ const WEEKEND_EVENT = {
     ...EVENT_COMMON_PERIOD,
     days: ['fri', 'sat'],
   },
-  dates: [],
   discount: 2023,
   target: FOOD_TYPE.main,
 };
@@ -60,9 +56,7 @@ const GIFT_EVENT = {
   period: {
     ...EVENT_COMMON_PERIOD,
   },
-  dates: [],
   discount: MENUS.get('샴페인').price,
-  target: 'amountOfAfterDiscount',
 };
 const SPECIAL_EVENT = {
   period: {
@@ -70,7 +64,6 @@ const SPECIAL_EVENT = {
   },
   dates: [3, 19, 17, 24, 25, 31],
   discount: 1000,
-  target: 'amountOfAfterDiscount',
 };
 
 export {

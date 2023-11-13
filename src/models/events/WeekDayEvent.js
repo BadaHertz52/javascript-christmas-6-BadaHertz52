@@ -14,7 +14,7 @@ class WeekDayEvent {
   }
 
   #isEventTargetDay(date) {
-    if (isInEventDays(date, WEEK_DAY_EVENT.period.day))
+    if (isInEventDays(date, WEEK_DAY_EVENT.period.days))
       this.#isEventApplied = true;
   }
   #setNumberOfEventTargetMenu(order) {

@@ -13,7 +13,7 @@ class WeekendEvent {
     this.#setNumberOfEventTargetMenu(order);
   }
   #isEventTargetDay(date) {
-    const pass = isInEventDays(date, WEEKEND_EVENT.period.day);
+    const pass = isInEventDays(date, WEEKEND_EVENT.period.days);
     if (pass) this.#isEventApplied = true;
   }
   #setNumberOfEventTargetMenu(order) {

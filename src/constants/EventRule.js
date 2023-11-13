@@ -41,7 +41,7 @@ const X_MAS_D_DAY_EVENT = {
 const WEEK_DAY_EVENT = {
   period: {
     ...EVENT_COMMON_PERIOD,
-    day: ['sun', 'mon', 'tue', 'wed', 'thu'],
+    days: ['sun', 'mon', 'tue', 'wed', 'thu'],
   },
   dates: [],
   discount: 2023,
@@ -50,7 +50,7 @@ const WEEK_DAY_EVENT = {
 const WEEKEND_EVENT = {
   period: {
     ...EVENT_COMMON_PERIOD,
-    day: ['fri', 'sat'],
+    days: ['fri', 'sat'],
   },
   dates: [],
   discount: 2023,

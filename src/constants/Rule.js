@@ -15,17 +15,10 @@ const THRESHOLD = freezeObject({
     min: 1,
     max: 31,
   }),
-  badge: freezeObject({
-    star: 5000,
-    tree: 10000,
-    santa: 20000,
-  }),
   numberOfMenu: freezeObject({
     min: 1,
     max: 20,
   }),
-  minPurchaseForGift: freezeObject(120000),
-  minPurchaseFoEvent: freezeObject(10000),
 });
 
 export {

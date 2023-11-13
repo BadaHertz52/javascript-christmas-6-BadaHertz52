@@ -1,10 +1,19 @@
+import { freezeObject } from '../utils/Freeze.js';
 import { FOOD_TYPE, MENUS } from './Menu.js';
 const BADGES = {
   santa: '🎅-santa',
   star: '🌟-star',
   tree: '🎄-tree',
 };
-
+const EVENT_THRESHOLD = freezeObject({
+  minPurchaseForGift: 120000,
+  minPurchaseForEvent: 10000,
+  badge: freezeObject({
+    star: 5000,
+    tree: 10000,
+    santa: 20000,
+  }),
+});
 const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 const NONE_EVENT_BENEFIT = '없음';
@@ -68,6 +77,7 @@ export {
   BADGES,
   DAYS,
   GIFT_EVENT,
+  EVENT_THRESHOLD,
   EVENT_YEAR_AND_MONTH,
   NONE_EVENT_BENEFIT,
   WEEK_DAY_EVENT,

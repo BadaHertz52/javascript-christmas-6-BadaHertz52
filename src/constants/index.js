@@ -1,5 +1,5 @@
 import {
-  BADGES,
+  BADGE_SHAPE,
   DAYS,
   GIFT,
   GIFT_EVENT,
@@ -37,7 +37,7 @@ import {
 } from './Rule.js';
 
 export {
-  BADGES,
+  BADGE_SHAPE,
   CURRENCY_UNIT,
   DAYS,
   DATE_REGEX_PATTERN,

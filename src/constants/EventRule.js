@@ -43,35 +43,35 @@ const X_MAS_D_DAY_EVENT = freezeObject({
   initialDiscount: 1000,
   extraDiscount: 100,
 });
-const WEEK_DAY_EVENT = {
+const WEEK_DAY_EVENT = freezeObject({
   period: freezeObject({
     ...EVENT_COMMON_PERIOD,
     days: ['sun', 'mon', 'tue', 'wed', 'thu'],
   }),
   discount: 2023,
   target: FOOD_TYPE.dessert,
-};
-const WEEKEND_EVENT = {
+});
+const WEEKEND_EVENT = freezeObject({
   period: freezeObject({
     ...EVENT_COMMON_PERIOD,
     days: ['fri', 'sat'],
   }),
   discount: 2023,
   target: FOOD_TYPE.main,
-};
-const GIFT_EVENT = {
+});
+const GIFT_EVENT = freezeObject({
   period: freezeObject({
     ...EVENT_COMMON_PERIOD,
   }),
   discount: MENUS.get('샴페인').price,
-};
-const SPECIAL_EVENT = {
+});
+const SPECIAL_EVENT = freezeObject({
   period: freezeObject({
     ...EVENT_COMMON_PERIOD,
   }),
   dates: [3, 19, 17, 24, 25, 31],
   discount: 1000,
-};
+});
 
 export {
   BADGE_SHAPE,

@@ -6,7 +6,7 @@ const FOOD_DELIMITER = freezeObject('-');
 
 const MENU_UNIT = freezeObject('개');
 
-const MONEY_UNIT = freezeObject('원');
+const CURRENCY_UNIT = freezeObject('원');
 
 const DISCOUNT_SIGN = freezeObject('-');
 
@@ -34,6 +34,6 @@ export {
   FOOD_DELIMITER,
   MENU_DELIMITER,
   MENU_UNIT,
-  MONEY_UNIT,
+  CURRENCY_UNIT,
   THRESHOLD,
 };

@@ -1,11 +1,10 @@
 import { Console } from '@woowacourse/mission-utils';
 import {
-  DISCOUNT_SIGN,
   MENU_UNIT,
   MESSAGE,
-  MONEY_UNIT,
   OUTPUT_HEADER_MESSAGE,
 } from '../constants/index.js';
+import { Money } from '../models/index.js';
 import { getEventPreviewMessage } from '../utils/index.js';
 
 const OutputView = {
@@ -16,7 +15,9 @@ const OutputView = {
     this.print(MESSAGE.greetings);
   },
   printEventPreview(date) {
+    this.printBlankLine();
     this.print(getEventPreviewMessage(date));
+    this.printBlankLine();
   },
   printEventTarget() {
     this.print(MESSAGE.event.target);
@@ -26,20 +27,29 @@ const OutputView = {
    * @param {{food:string, type:string, price:number ,numberOfOrder: number}[]} order : ;
    */
   printOrder(order) {
+    this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE.order);
     order.forEach((v) =>
       this.print(`${v.food} ${v.numberOfOrder}${MENU_UNIT}`),
     );
   },
-  printMoney(money, isDiscount = false) {
-    this.print(`${isDiscount ? DISCOUNT_SIGN : ''}${money}${MONEY_UNIT}`);
+  /**
+   *
+   * @param {number} money
+   */
+  printMoney(money) {
+    this.print(new Money(money).getValue());
+  },
+  printBlankLine() {
+    this.print('');
   },
   /**
    *
-   * @param {"amountBeforeDiscount"|"totalBenefitAmount"|amountAfterDiscount"} type
+   * @param {'amountBeforeDiscount'|'totalBenefitAmount'|'amountAfterDiscount'} type
    * @param {*} money
    */
   printAmount(type, money) {
+    this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE[type]);
     this.printMoney(money);
   },

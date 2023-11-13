@@ -1,4 +1,5 @@
-import { InputController } from './controllers/index.js';
+import { Calculator, InputController } from './controllers/index.js';
+import Money from './models/Money.js';
 import OutputView from './views/OutputView.js';
 
 class App {
@@ -20,19 +21,35 @@ class App {
   };
   async run() {
     //예약 방문일
-    await this.getReservationDate();
+    await this.#getReservationDate();
     OutputView.printEventPreview(this.#reservation.date);
     // 주문
-    await this.getOrder();
+    await this.#getOrder();
     OutputView.printOrder(this.#reservation.order);
+    //할인 전 총 금액
+    this.#setAmountBeforeDiscount();
+    OutputView.printAmount(
+      'amountBeforeDiscount',
+      this.#reservation.amountOfBeforeDiscount,
+    );
   }
-  async getReservationDate() {
+
+  async #getReservationDate() {
     const date = await InputController.getValidReservationDate();
     this.#reservation.date = date;
   }
-  async getOrder() {
+  async #getOrder() {
     const order = await InputController.getValidOrder();
     this.#reservation.order = order;
+  }
+  #setAmountBeforeDiscount() {
+    const value = new Calculator().getAmountBeforeDiscount(
+      this.#reservation.order,
+    );
+    this.#reservation.amountOfBeforeDiscount = value;
+  }
+  getAmountBeforeDiscount() {
+    return this.#reservation.amountOfBeforeDiscount;
   }
 }
 

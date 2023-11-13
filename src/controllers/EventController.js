@@ -1,5 +1,6 @@
 import { NONE_EVENT_BENEFIT, EVENT_THRESHOLD } from '../constants/index.js';
 import {
+  GiftEvent,
   SpecialEvent,
   WeekDayEvent,
   WeekendEvent,
@@ -12,7 +13,7 @@ class EventController {
     xmasDDayEvent: undefined, // undefined|number(할인금액)||"없음"
     weekDayEvent: undefined,
     weekendEvent: undefined,
-    gitEvent: undefined,
+    giftEvent: undefined,
     specialEvent: undefined,
     totalDiscount: undefined,
   };
@@ -23,6 +24,7 @@ class EventController {
       this.#setWeekDayDiscount(date, order);
       this.#setWeekendDiscount(date, order);
       this.#setSpecialDiscount(date);
+      this.#setGiftBenefit(amountOfBeforeDiscount);
     }
   }
   #isEventTarget(amountBeforeDiscount) {
@@ -47,6 +49,10 @@ class EventController {
   #setSpecialDiscount(date) {
     const discount = new SpecialEvent(date).getDiscount();
     this.#benefit.specialEvent = this.#changeDiscountValue(discount);
+  }
+  #setGiftBenefit(amountBeforeDiscount) {
+    const gift = new GiftEvent(amountBeforeDiscount).getGift();
+    this.#benefit.giftEvent = gift;
   }
   getBenefit() {
     return this.#benefit;

@@ -15,9 +15,8 @@ const EVENT_THRESHOLD = freezeObject({
   }),
 });
 const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-
 const NONE_EVENT_BENEFIT = '없음';
-
+const GIFT = '샴페인 1개';
 const EVENT_YEAR_AND_MONTH = {
   year: 2023,
   month: 12,
@@ -69,6 +68,7 @@ const SPECIAL_EVENT = {
 export {
   BADGES,
   DAYS,
+  GIFT,
   GIFT_EVENT,
   EVENT_THRESHOLD,
   EVENT_YEAR_AND_MONTH,

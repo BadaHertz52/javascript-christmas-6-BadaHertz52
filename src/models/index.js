@@ -4,6 +4,7 @@ import OrderedMenu from './OrderedMenu.js';
 import Money from './Money.js';
 import ReservationDate from './ReservationDate.js';
 import {
+  GiftEvent,
   SpecialEvent,
   WeekDayEvent,
   WeekendEvent,
@@ -14,6 +15,7 @@ export {
   CustomError,
   Order,
   OrderedMenu,
+  GiftEvent,
   Money,
   ReservationDate,
   SpecialEvent,

@@ -4,7 +4,7 @@ import { QUERY } from '../constants/index.js';
 const InputView = {
   async readInputValue(query) {
     const value = await Console.readLineAsync(query);
-    return value;
+    return value.replaceAll(' ', '');
   },
   async readDate() {
     const date = await this.readInputValue(QUERY.reservationDate);

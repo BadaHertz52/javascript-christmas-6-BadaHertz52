@@ -3,7 +3,7 @@ class Calculator {
    *
    * @param {{ food:string, type:string, price:number, numberOfOrder:number}[]} order : ;
    */
-  getAmountBeforeDiscount(order) {
+  calculateAmountBeforeDiscount(order) {
     return order.reduce((accumulator, currentValue) => {
       const { price, numberOfOrder } = currentValue;
       return accumulator + price * numberOfOrder;
@@ -18,6 +18,9 @@ class Calculator {
       (accumulator, currentValue) => accumulator + currentValue.discount,
       0,
     );
+  }
+  calculateAmountAfterDiscount(amountBeforeDiscount, totalBenefitAmount) {
+    return amountBeforeDiscount - totalBenefitAmount;
   }
 }
 

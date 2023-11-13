@@ -41,6 +41,12 @@ class App {
       this.#reservation.totalBenefitAmount,
       true,
     );
+    //할인 후 예상 결제 금액
+    this.#setAmountAfterDiscount();
+    OutputController.controlPrintAmount(
+      'amountAfterDiscount',
+      this.#reservation.amountOfAfterDiscount,
+    );
   }
 
   async #getReservationDate() {
@@ -52,7 +58,7 @@ class App {
     this.#reservation.order = order;
   }
   #setAmountBeforeDiscount() {
-    const value = new Calculator().getAmountBeforeDiscount(
+    const value = new Calculator().calculateAmountBeforeDiscount(
       this.#reservation.order,
     );
     this.#reservation.amountOfBeforeDiscount = value;
@@ -68,6 +74,14 @@ class App {
   #setTotalBenefitAmount(benefit) {
     this.#reservation.totalBenefitAmount =
       new Calculator().calculateTotalBenefitAmount(benefit);
+  }
+  #setAmountAfterDiscount() {
+    const { amountOfBeforeDiscount, totalBenefitAmount } = this.#reservation;
+    this.#reservation.amountOfAfterDiscount =
+      new Calculator().calculateAmountAfterDiscount(
+        amountOfBeforeDiscount,
+        totalBenefitAmount,
+      );
   }
   getData() {
     return this.#reservation;

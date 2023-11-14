@@ -28,10 +28,13 @@ const getOutput = (logSpy) => {
   return [...logSpy.mock.calls].join(LINE_SEPARATOR);
 };
 
+const makeExpected = (header, contents) => [header + LINE_SEPARATOR + contents];
+
 export {
   expectLogContains,
   getLogSpy,
   getOutput,
+  makeExpected,
   mockQuestions,
   LINE_SEPARATOR,
 };

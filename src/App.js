@@ -1,3 +1,4 @@
+import { EVENT_NAMES } from './constants/EventRule.js';
 import {
   Calculator,
   EventController,
@@ -46,7 +47,7 @@ class App {
       true,
     );
     //할인 후 예상 결제 금액
-    this.#setAmountAfterDiscount();
+    this.#setAmountAfterDiscount(benefits);
     OutputController.controlPrintAmount(
       'amountAfterDiscount',
       this.#reservation.amountOfAfterDiscount,
@@ -82,12 +83,17 @@ class App {
     this.#reservation.totalBenefitAmount =
       new Calculator().calculateTotalBenefitAmount(benefit);
   }
-  #setAmountAfterDiscount() {
+  #hasGift(benefit) {
+    return benefit.some((v) => v.event === EVENT_NAMES.giftEvent);
+  }
+  #setAmountAfterDiscount(benefit) {
     const { amountOfBeforeDiscount, totalBenefitAmount } = this.#reservation;
+    const isGift = this.#hasGift(benefit);
     this.#reservation.amountOfAfterDiscount =
       new Calculator().calculateAmountAfterDiscount(
         amountOfBeforeDiscount,
         totalBenefitAmount,
+        isGift,
       );
   }
   #setBadge() {

@@ -1,3 +1,5 @@
+import { GIFT_EVENT } from '../constants';
+
 class Calculator {
   /**
    *
@@ -11,7 +13,7 @@ class Calculator {
   }
   /**
    *
-   * @param {{ event: string, discount: number|string }[]} benefits
+   * @param {{ event: string, discount: number }[]} benefits
    */
   calculateTotalBenefitAmount(benefits) {
     return benefits.reduce(
@@ -19,8 +21,13 @@ class Calculator {
       0,
     );
   }
-  calculateAmountAfterDiscount(amountBeforeDiscount, totalBenefitAmount) {
-    return amountBeforeDiscount - totalBenefitAmount;
+  calculateAmountAfterDiscount(
+    amountBeforeDiscount,
+    totalBenefitAmount,
+    isGift,
+  ) {
+    const giftDiscount = isGift ? GIFT_EVENT.discount : 0;
+    return amountBeforeDiscount - (totalBenefitAmount - giftDiscount);
   }
 }
 

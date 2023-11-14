@@ -35,6 +35,7 @@ const ERROR_MESSAGE = freezeObject({
     none: '메뉴판에 없는 메뉴가 있습니다.',
     noOnlyBeverage: NO_ONLY_BEVERAGE_MESSAGE,
     wrongOrderFormat: `잘못된 주문 형식입니다.`,
+    maxTotalNumberOfOrder: MAX_TOTAL_NUMBER_OF_ORDER_MESSAGE,
   }),
 });
 

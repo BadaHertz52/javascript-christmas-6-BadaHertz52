@@ -1,4 +1,4 @@
-import { freezeObject } from '../utils/index.js';
+import { freezeObject } from '../utils/Freeze.js';
 
 const MENU_DELIMITER = freezeObject(',');
 

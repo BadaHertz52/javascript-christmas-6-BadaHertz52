@@ -1,5 +1,4 @@
-import { freezeFood, freezeFoodType, freezeObject } from '../utils/index.js';
-
+import { freezeFood, freezeObject } from '../utils/Freeze.js';
 const FOOD_TYPE = freezeObject({
   appetizer: 'appetizer',
   main: 'main',

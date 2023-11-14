@@ -1,4 +1,4 @@
-import { freezeObject } from '../utils/index.js';
+import { freezeObject } from '../utils/Freeze.js';
 import { EVENT_THRESHOLD } from './EventRule.js';
 import {
   CURRENCY_UNIT,

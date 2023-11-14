@@ -28,8 +28,9 @@ class Order {
     this.#setFormatArray(string);
     this.#validateOrderFormat();
     this.#setList();
+    this.#validateNumberOfOrder();
+    this.#validateTotalNumberOfOrder();
     this.#setOrderedFoods();
-    this.#validateNumberOfMenu();
     this.#isInMenu();
     this.#isDuplicate();
     this.#hasOnlyBeverage();
@@ -54,16 +55,23 @@ class Order {
   }
   #validateOrderFormat() {
     if (!this.#isSuitableOrderFormat()) this.#makeError('order format');
+  #validateNumberOfOrder() {
+    const pass = this.#list.every((v) => {
+      const numberOfOrder = v.numberOfOrder;
+      const { min, max } = THRESHOLD.numberOfOrder;
+      return numberOfOrder >= min && numberOfOrder <= max;
+    });
+    if (!pass) this.#makeError('wrongNumberOfOrder');
   }
-  getNumberOfMenu() {
+  getTotalNumberOfOrder() {
     return this.#list.reduce(
       (accumulator, currentValue) => accumulator + currentValue.numberOfOrder,
       0,
     );
   }
-  #validateNumberOfMenu() {
-    if (this.getNumberOfMenu() > THRESHOLD.numberOfMenu.max)
-      this.#makeError('number of menu');
+  #validateTotalNumberOfOrder() {
+    if (this.getTotalNumberOfOrder() > THRESHOLD.maxTotalNumberOfOrder)
+      this.#makeError('maxTotalNumberOfOrder');
   }
   #isInMenu() {
     const pass = this.#orderedFoods.every((v) => FOOD_ARRAY.includes(v));

@@ -15,10 +15,11 @@ const THRESHOLD = freezeObject({
     min: 1,
     max: 31,
   }),
-  numberOfMenu: freezeObject({
+  numberOfOrder: freezeObject({
     min: 1,
     max: 20,
   }),
+  maxTotalNumberOfOrder: 20,
 });
 
 export {

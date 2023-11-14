@@ -7,7 +7,7 @@ describe('증정 이벤트 테스트', () => {
   test('할인 전 총 구매액이 12만원 미만 이면, 증정품 없음 ', () => {
     const AMOUNT_BEFORE_DISCOUNT = 6000;
     const ORDER = '양송이스푸-1';
-    const order = new OrderedMenu(ORDER).getData();
+    const ORDER_LIST = new OrderedMenu(ORDER).getData();
     const logSpy = getLogSpy();
 
     const gitEvent = new GiftEvent(AMOUNT_BEFORE_DISCOUNT);
@@ -16,7 +16,7 @@ describe('증정 이벤트 테스트', () => {
 
     const eventController = new EventController(
       1,
-      order,
+      ORDER_LIST,
       AMOUNT_BEFORE_DISCOUNT,
     );
 
@@ -29,13 +29,13 @@ describe('증정 이벤트 테스트', () => {
 
   test('할인 전 총 구매액이 12만원 이상이면, 증정품 증정', () => {
     const AMOUNT_BEFORE_DISCOUNT = 142000;
-    const ORDERS = [
+    const MENUS = [
       '티본스테이크-1',
       '바비큐립-1',
       '초코케이크-2',
       '제로콜라-1',
     ];
-    const order = ORDERS.map((v) => new OrderedMenu(v).getData());
+    const ORDER_LIST = MENUS.map((v) => new OrderedMenu(v).getData());
     const logSpy = getLogSpy();
 
     const gitEvent = new GiftEvent(AMOUNT_BEFORE_DISCOUNT);
@@ -44,7 +44,7 @@ describe('증정 이벤트 테스트', () => {
 
     const eventController = new EventController(
       1,
-      order,
+      ORDER_LIST,
       AMOUNT_BEFORE_DISCOUNT,
     );
 

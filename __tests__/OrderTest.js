@@ -60,15 +60,15 @@ describe('주문 예외 테스트', () => {
 
 describe('유효한 주문', () => {
   test('유효한 주문 시, 주문 리스트를 반환', () => {
-    const ORDERS = [
+    const MENUS = [
       '양송이스푸-1',
       '크리스마스파스타-2',
       '초코케이크-3',
       '샴페인-1',
     ];
-    const orderedMenus = ORDERS.map((v) => new OrderedMenu(v).getData());
+    const ORDER_LIST = MENUS.map((v) => new OrderedMenu(v).getData());
 
-    const order = new Order(ORDERS.join(MENU_DELIMITER));
-    expect(order.getList()).toEqual(orderedMenus);
+    const order = new Order(MENUS.join(MENU_DELIMITER));
+    expect(order.getList()).toEqual(ORDER_LIST);
   });
 });

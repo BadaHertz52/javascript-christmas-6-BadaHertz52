@@ -28,4 +28,10 @@ const expectLogContains = (received, expectedLogs) => {
   });
 };
 
-export { mockQuestions, getLogSpy, getOutput, expectLogContains };
+export {
+  mockQuestions,
+  getLogSpy,
+  getOutput,
+  expectLogContains,
+  LINE_SEPARATOR,
+};

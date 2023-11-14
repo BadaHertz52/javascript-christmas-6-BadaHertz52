@@ -1,4 +1,4 @@
-import { GIFT_EVENT } from '../src/constants';
+import { EVENT_NAMES, GIFT_EVENT } from '../src/constants';
 import { EventController, OutputController } from '../src/controllers';
 import { GiftEvent } from '../src/models';
 import { getLogSpy, getOrderList } from '../testUtils';
@@ -49,9 +49,11 @@ describe('증정 이벤트 테스트', () => {
     );
 
     const benefit = eventController.getBenefits();
-
+    const discount = benefit.filter((v) => v.event === EVENT_NAMES.giftEvent)[0]
+      .discount;
     OutputController.controlPrintGift(benefit);
 
+    expect(discount).toBe(25000);
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('샴페인 1개'));
   });
 });

@@ -4,11 +4,14 @@ import { GiftEvent } from '../src/models';
 import { getLogSpy, getOrderList } from '../testUtils';
 
 describe('증정 이벤트 테스트', () => {
+  let logSpy;
+  beforeEach(() => {
+    logSpy = getLogSpy();
+  });
   test('할인 전 총 구매액이 12만원 미만 이면, 증정품 없음 ', () => {
     const AMOUNT_BEFORE_DISCOUNT = 6000;
     const ORDER = '양송이스푸-1';
     const ORDER_LIST = getOrderList([ORDER]);
-    const logSpy = getLogSpy();
 
     const gitEvent = new GiftEvent(AMOUNT_BEFORE_DISCOUNT);
 
@@ -36,7 +39,6 @@ describe('증정 이벤트 테스트', () => {
       '제로콜라-1',
     ];
     const ORDER_LIST = getOrderList(MENUS);
-    const logSpy = getLogSpy();
 
     const gitEvent = new GiftEvent(AMOUNT_BEFORE_DISCOUNT);
 

@@ -16,8 +16,16 @@ const QUERY = freezeObject({
 
 const MESSAGE = freezeObject({
   greetings: '안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.',
+  notesOnEvent: freezeObject([
+    `주문 시 "메뉴${FOOD_DELIMITER}개수"형태로 "${MENU_DELIMITER}"를 사용해 메뉴 구분해서 입력해주세요. (e.g. 해산물파스타-2,레드와인-1)`,
+    NO_ONLY_BEVERAGE_MESSAGE,
+    NUMBER_OF_ORDER_MESSAGE,
+    MAX_TOTAL_NUMBER_OF_ORDER_MESSAGE,
+    `총주문 금액 ${new Money(
+      EVENT_THRESHOLD.minPurchaseForEvent,
+    ).getValue()} 이상부터 이벤트가 적용돼요.`,
+  ]),
   event: freezeObject({
-    target: '💡총주문 금액 10,000원 이상부터 이벤트가 적용됩니다.',
     preview: freezeObject({
       header: '12월',
       footer: '일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!',
@@ -26,6 +34,7 @@ const MESSAGE = freezeObject({
 });
 
 const OUTPUT_HEADER_MESSAGE = freezeObject({
+  notesOnEvent: '🎅 이벤트 주의 사항 안내 🎄',
   order: '<주문 메뉴>',
   amountBeforeDiscount: '<할인 전 총주문 금액>',
   gift: '<증정 메뉴>',

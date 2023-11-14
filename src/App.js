@@ -18,11 +18,14 @@ class App {
     badge: undefined,
   };
   async run() {
+    OutputView.printGreetings();
     //예약 방문일
     await this.#getReservationDate();
-    OutputView.printEventPreview(this.#reservation.date);
+    //이벤트 주의 사항 안내
+    OutputView.printNotesOnEvent();
     // 주문
     await this.#getOrder();
+    OutputView.printEventPreview(this.#reservation.date);
     OutputView.printOrder(this.#reservation.order);
     //할인 전 총 금액
     this.#setAmountBeforeDiscount();

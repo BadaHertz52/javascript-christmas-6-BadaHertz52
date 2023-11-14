@@ -17,14 +17,18 @@ const OutputView = {
   },
   printGreetings() {
     this.print(MESSAGE.greetings);
+    this.printBlankLine();
   },
   printEventPreview(date) {
     this.printBlankLine();
     this.print(getEventPreviewMessage(date));
-    this.printBlankLine();
   },
-  printEventTarget() {
-    this.print(MESSAGE.event.target);
+  printNotesOnEvent() {
+    this.printBlankLine();
+    this.print(OUTPUT_HEADER_MESSAGE.notesOnEvent);
+    this.printBlankLine();
+    MESSAGE.notesOnEvent.forEach((v) => this.print(v));
+    this.printBlankLine();
   },
   /**
    *

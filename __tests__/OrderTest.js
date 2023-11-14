@@ -1,6 +1,7 @@
 import { MENU_DELIMITER } from '../src/constants';
-import { Order, OrderedMenu } from '../src/models';
+import { Order } from '../src/models';
 import { getOrderErrorMessage } from '../src/utils';
+import { getOrderList } from '../testUtils';
 
 describe('주문 예외 테스트', () => {
   test('주문 형식이 "메뉴-개수" 형태가 아닐 경우 예외 발생', () => {
@@ -66,7 +67,7 @@ describe('유효한 주문', () => {
       '초코케이크-3',
       '샴페인-1',
     ];
-    const ORDER_LIST = MENUS.map((v) => new OrderedMenu(v).getData());
+    const ORDER_LIST = getOrderList(MENUS);
 
     const order = new Order(MENUS.join(MENU_DELIMITER));
     expect(order.getList()).toEqual(ORDER_LIST);

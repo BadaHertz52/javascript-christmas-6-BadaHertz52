@@ -1,5 +1,5 @@
 import { Calculator } from '../src/controllers';
-import { OrderedMenu } from '../src/models';
+import { getOrderList } from '../testUtils';
 
 describe('계산 테스트', () => {
   test('할인 전 총 주문 금액', () => {
@@ -9,7 +9,8 @@ describe('계산 테스트', () => {
       '초코케이크-2',
       '제로콜라-1',
     ];
-    const ORDER_LIST = MENUS.map((v) => new OrderedMenu(v).getData());
+    const ORDER_LIST = getOrderList(MENUS);
+    console.log('list', ORDER_LIST);
     const EXPECTED_AMOUNT = 142000;
 
     const result = new Calculator().calculateAmountBeforeDiscount(ORDER_LIST);

@@ -39,8 +39,7 @@ describe('이벤트 테스트', () => {
         '초코케이크-2',
         '제로콜라-1',
       ];
-      const ORDER_LIST = MENUS.map((v) => new OrderedMenu(v).getData());
-
+      const ORDER_LIST =getOrderList(MENUS);
       const eventController = new EventController(
         DATE,
         ORDER_LIST,

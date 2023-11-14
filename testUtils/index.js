@@ -1,5 +1,6 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
 import { EOL as LINE_SEPARATOR } from 'os';
+import { OrderedMenu } from '../src/models';
 
 const mockQuestions = (inputs) => {
   MissionUtils.Console.readLineAsync = jest.fn();
@@ -28,9 +29,11 @@ const expectLogContains = (received, expectedLogs) => {
   });
 };
 
+const getOrderList = (array) => array.map((v) => new OrderedMenu(v).getData());
 export {
   mockQuestions,
   getLogSpy,
+  getOrderList,
   getOutput,
   expectLogContains,
   LINE_SEPARATOR,

@@ -1,3 +1,11 @@
+import {
+  getRandomDate,
+  getRandomSpecialDate,
+  getRandomDateNotSpecialEvent,
+  getRandomWeekDay,
+  getRandomWeekend,
+  WEEKEND,
+} from './date';
 
 import {
   expectLogContains,
@@ -10,10 +18,16 @@ import {
 import { getOrderList } from './orderList';
 
 export {
-  mockQuestions,
+  expectLogContains,
   getLogSpy,
   getOrderList,
   getOutput,
-  expectLogContains,
+  getRandomDate,
+  getRandomSpecialDate,
+  getRandomDateNotSpecialEvent,
+  getRandomWeekDay,
+  getRandomWeekend,
   LINE_SEPARATOR,
+  mockQuestions,
+  WEEKEND,
 };

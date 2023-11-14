@@ -26,7 +26,7 @@ describe('이벤트 테스트', () => {
       const DATE = 1;
       const AMOUNT_BEFORE_DISCOUNT = 6000;
       const ORDER = '양송이스푸-1';
-      const message = ['<혜택 내역>' + LINE_SEPARATOR + '없음'];
+      const MESSAGE = ['<혜택 내역>' + LINE_SEPARATOR + '없음'];
       const logSpy = getLogSpy();
       const eventController = new EventController(
         DATE,
@@ -36,7 +36,7 @@ describe('이벤트 테스트', () => {
       const benefits = eventController.getBenefits();
       expect(benefits).toEqual([]);
       OutputController.controlPrintBenefits(benefits);
-      expectLogContains(getOutput(logSpy), message);
+      expectLogContains(getOutput(logSpy), MESSAGE);
     });
     test('할인 전 총 주문 금액이 10000원 이상이면, 이벤트 적용됨', () => {
       const DATE = 1;

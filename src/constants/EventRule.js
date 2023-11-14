@@ -69,7 +69,7 @@ const SPECIAL_EVENT = freezeObject({
   period: freezeObject({
     ...EVENT_COMMON_PERIOD,
   }),
-  dates: [3, 19, 17, 24, 25, 31],
+  dates: [3, 10, 17, 24, 25, 31],
   discount: 1000,
 });
 

@@ -75,7 +75,7 @@ describe("예외 테스트", () => {
     const INVALID_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
     const INPUTS_TO_END = ["1", "해산물파스타-2"];
     const logSpy = getLogSpy();
-    mockQuestions(["a", ...INPUTS_TO_END]);
+    mockQuestions(["a","0","31"," ", , ...INPUTS_TO_END]);
 
     // when
     const app = new App();

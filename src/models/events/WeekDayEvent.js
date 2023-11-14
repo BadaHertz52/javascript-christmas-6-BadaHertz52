@@ -25,7 +25,7 @@ class WeekDayEvent {
     );
   }
   getDiscount() {
-    if (!this.#isEventApplied) return;
+    if (!this.#isEventApplied || !this.#numberOfTargetMenu) return;
     return this.#numberOfTargetMenu * WEEK_DAY_EVENT.discount;
   }
 }

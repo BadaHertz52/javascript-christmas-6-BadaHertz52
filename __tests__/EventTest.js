@@ -18,6 +18,7 @@ import {
   getRandomWeekend,
   LINE_SEPARATOR,
 } from '../testUtils';
+import { EVENT_NAMES } from '../src/constants';
 
 describe('이벤트 테스트', () => {
   describe('할인 전 총 주문 금액 미달로 인한 이벤트 적용 테스트', () => {
@@ -153,6 +154,34 @@ describe('이벤트 테스트', () => {
       const specialEvent = new SpecialEvent(date);
 
       expect(specialEvent.getDiscount()).toBe(1000);
+    });
+  });
+  describe('출력 대상 이벤트', () => {
+    test('혜택이 없는 이벤트는 출력 대상에서 제외', () => {
+      const DATE = 29;
+      const AMOUNT_BEFORE_DISCOUNT = 65500;
+      const NOT_TARGET_EVENTS = [
+        EVENT_NAMES.xMasDDayEvent,
+        EVENT_NAMES.weekDayEvent,
+        EVENT_NAMES.specialEvent,
+      ];
+      const TARGET_EVENTS = [EVENT_NAMES.weekendEvent, EVENT_NAMES.giftEvent];
+      const MENUS = ['티본스테이크-1', '타파스-1', '아이스크림-1'];
+      const orderList = getOrderList(MENUS);
+
+      const eventController = new EventController(
+        DATE,
+        AMOUNT_BEFORE_DISCOUNT,
+        orderList,
+      );
+      const benefits = eventController.getBenefits();
+
+      expect(
+        benefits.every((v) => !NOT_TARGET_EVENTS.includes(v.event)),
+      ).toBeTruthy();
+      expect(
+        benefits.every((v) => TARGET_EVENTS.includes(v.event)),
+      ).toBeTruthy();
     });
   });
 });

@@ -1,35 +1,14 @@
-import { MissionUtils } from '@woowacourse/mission-utils';
-import { EOL as LINE_SEPARATOR } from 'os';
-import { OrderedMenu } from '../src/models';
 
-const mockQuestions = (inputs) => {
-  MissionUtils.Console.readLineAsync = jest.fn();
+import {
+  expectLogContains,
+  getLogSpy,
+  getOutput,
+  LINE_SEPARATOR,
+  mockQuestions,
+} from './mock';
 
-  MissionUtils.Console.readLineAsync.mockImplementation(() => {
-    const input = inputs.shift();
+import { getOrderList } from './orderList';
 
-    return Promise.resolve(input);
-  });
-};
-
-const getLogSpy = () => {
-  const logSpy = jest.spyOn(MissionUtils.Console, 'print');
-  logSpy.mockClear();
-
-  return logSpy;
-};
-
-const getOutput = (logSpy) => {
-  return [...logSpy.mock.calls].join(LINE_SEPARATOR);
-};
-
-const expectLogContains = (received, expectedLogs) => {
-  expectedLogs.forEach((log) => {
-    expect(received).toContain(log);
-  });
-};
-
-const getOrderList = (array) => array.map((v) => new OrderedMenu(v).getData());
 export {
   mockQuestions,
   getLogSpy,

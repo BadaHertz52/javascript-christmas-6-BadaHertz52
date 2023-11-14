@@ -49,12 +49,17 @@ class Order {
       testRegExp(FOOD_ORDER_REGEX_PATTERN, v),
     );
   }
-  #makeError(errorContent) {
-    const errorMessage = getOrderErrorMessage();
-    new CustomError('order error:' + errorContent, errorMessage);
+  /**
+   *
+   * @param {'duplicate'|'maxTotalNumberOfOrder'|'none'|'noOnlyBeverage'|'wrongOrderFormat'|'wrongNumberOfOrder'} errorDetail
+   */
+  #makeError(errorDetail) {
+    const errorMessage = getOrderErrorMessage(errorDetail);
+    new CustomError('order error', errorMessage);
   }
   #validateOrderFormat() {
-    if (!this.#isSuitableOrderFormat()) this.#makeError('order format');
+    if (!this.#isSuitableOrderFormat()) this.#makeError('wrongOrderFormat');
+  }
   #validateNumberOfOrder() {
     const pass = this.#list.every((v) => {
       const numberOfOrder = v.numberOfOrder;
@@ -85,7 +90,7 @@ class Order {
     const isOnlyBeverage = this.#list.every(
       (v) => v.type === FOOD_TYPE.beverage,
     );
-    if (isOnlyBeverage) this.#makeError('only beverage');
+    if (isOnlyBeverage) this.#makeError('noOnlyBeverage');
   }
   getList() {
     return this.#list;

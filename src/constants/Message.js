@@ -1,15 +1,39 @@
+import Money from '../models/Money.js';
 import { freezeObject } from '../utils/index.js';
+import { EVENT_THRESHOLD } from './EventRule.js';
+import { FOOD_DELIMITER, MENU_DELIMITER, THRESHOLD } from './Rule.js';
+
+const RESERVATION_DATE_MESSAGE = `(${THRESHOLD.reservationDate.min}~${THRESHOLD.reservationDate.max}의 숫자만 입력해 주세요!)`;
+
+const NO_ONLY_BEVERAGE_MESSAGE = freezeObject(
+  '음료만 주문 시, 주문할 수 없습니다.',
+);
+
+const NUMBER_OF_ORDER_MESSAGE = freezeObject(
+  `하나의 메뉴에 대해 주문할 수 있는 개수는 최소 ${THRESHOLD.numberOfOrder.min}개, 최대 ${THRESHOLD.numberOfOrder.max}개입니다.`,
+);
+
+const MAX_TOTAL_NUMBER_OF_ORDER_MESSAGE = freezeObject(
+  `주문 가능한 메뉴의 총 개수는 최대 ${THRESHOLD.maxTotalNumberOfOrder}개입니다.`,
+);
 
 const ERROR_MESSAGE = freezeObject({
   header: '[ERROR]',
-  footer: '다시 입력해주세요.',
-  reservationDate: '유효하지 않은 날짜입니다.',
-  order: '유효하지 않은 주문입니다.',
+  footer: '다시 입력해 주세요.',
+  reservationDate: '유효하지 않은 날짜입니다.' + RESERVATION_DATE_MESSAGE,
+  order: freezeObject({
+    basic: '유효하지 않은 주문입니다.',
+    duplicate: '중복된 메뉴가 있습니다.',
+    wrongNumberOfOrder: NUMBER_OF_ORDER_MESSAGE,
+    none: '메뉴판에 없는 메뉴가 있습니다.',
+    noOnlyBeverage: NO_ONLY_BEVERAGE_MESSAGE,
+    wrongOrderFormat: `잘못된 주문 형식입니다.`,
+  }),
 });
 
 const QUERY = freezeObject({
   reservationDate:
-    '12월 중 식당 예상 방문 날짜는 언제인가요? (1~31의 숫자만 입력해 주세요!)',
+    '12월 중 식당 예상 방문 날짜는 언제인가요?' + RESERVATION_DATE_MESSAGE,
   order:
     '주문하실 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)',
 });

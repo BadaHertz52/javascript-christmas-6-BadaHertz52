@@ -6,14 +6,21 @@ import { ERROR_MESSAGE, MESSAGE } from '../constants/index.js';
  */
 const getErrorMessage = (error) => {
   const { header, footer } = ERROR_MESSAGE;
-  return `${header}${error}${footer}`;
+  return `${header} ${error} ${footer}`;
 };
 const getReservationDateErrorMessage = () => {
   return getErrorMessage(ERROR_MESSAGE.reservationDate);
 };
 
-const getOrderErrorMessage = () => {
-  return getErrorMessage(ERROR_MESSAGE.order);
+/**
+ *
+ * @param {'duplicate'|'maxTotalNumberOfOrder'|'none'|'noOnlyBeverage'|'wrongOrderFormat'|'wrongNumberOfOrder'} errorDetail
+ * @returns
+ */
+const getOrderErrorMessage = (errorDetail) => {
+  return getErrorMessage(
+    ERROR_MESSAGE.order.basic + ' ' + ERROR_MESSAGE.order[errorDetail],
+  );
 };
 /**
  *

@@ -1,9 +1,4 @@
-import {
-  EVENT_THRESHOLD,
-  GIFT,
-  GIFT_EVENT,
-  NONE,
-} from '../../constants/index.js';
+import { EVENT_THRESHOLD, GIFT_EVENT } from '../../constants/index.js';
 
 class GiftEvent {
   #isEventApplied = false;

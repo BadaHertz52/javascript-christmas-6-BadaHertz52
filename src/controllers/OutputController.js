@@ -27,8 +27,9 @@ const OutputController = {
     OutputView.printAmount(type, amount);
   },
   controlPrintBadge(badge) {
-    const message = !badge ? NONE : `${badge.icon}:${badge.name}`;
+    const message = !badge ? NONE : badge.name;
     OutputView.printBadge(message);
+    if (badge) OutputView.print(`${badge.icon}🎁`);
   },
 };
 export default OutputController;

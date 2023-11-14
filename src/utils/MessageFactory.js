@@ -1,15 +1,8 @@
 import { ERROR_MESSAGE, MESSAGE } from '../constants/index.js';
-/**
- *
- * @param {*} error
- * @returns
- */
-const getErrorMessage = (error) => {
-  const { header, footer } = ERROR_MESSAGE;
-  return `${header} ${error} ${footer}`;
-};
+
 const getReservationDateErrorMessage = () => {
-  return getErrorMessage(ERROR_MESSAGE.reservationDate);
+  const { header, reInput, reservationDate } = ERROR_MESSAGE;
+  return `${header} ${reservationDate.basic} ${reInput} ${reservationDate.detail}`;
 };
 
 /**
@@ -18,9 +11,8 @@ const getReservationDateErrorMessage = () => {
  * @returns
  */
 const getOrderErrorMessage = (errorDetail) => {
-  return getErrorMessage(
-    ERROR_MESSAGE.order.basic + ' ' + ERROR_MESSAGE.order[errorDetail],
-  );
+  const { header, reInput, order } = ERROR_MESSAGE;
+  return `${header} ${order.basic} ${reInput} ${order[errorDetail]}`;
 };
 /**
  *

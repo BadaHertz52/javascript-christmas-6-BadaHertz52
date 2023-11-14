@@ -1,7 +1,11 @@
-import Money from '../models/Money.js';
 import { freezeObject } from '../utils/index.js';
 import { EVENT_THRESHOLD } from './EventRule.js';
-import { FOOD_DELIMITER, MENU_DELIMITER, THRESHOLD } from './Rule.js';
+import {
+  CURRENCY_UNIT,
+  FOOD_DELIMITER,
+  MENU_DELIMITER,
+  THRESHOLD,
+} from './Rule.js';
 
 const RESERVATION_DATE_MESSAGE = `(${THRESHOLD.reservationDate.min}~${THRESHOLD.reservationDate.max}의 숫자만 입력해 주세요!)`;
 
@@ -19,8 +23,11 @@ const MAX_TOTAL_NUMBER_OF_ORDER_MESSAGE = freezeObject(
 
 const ERROR_MESSAGE = freezeObject({
   header: '[ERROR]',
-  footer: '다시 입력해 주세요.',
-  reservationDate: '유효하지 않은 날짜입니다.' + RESERVATION_DATE_MESSAGE,
+  reInput: '다시 입력해 주세요.',
+  reservationDate: freezeObject({
+    basic: '유효하지 않은 날짜입니다.',
+    detail: RESERVATION_DATE_MESSAGE,
+  }),
   order: freezeObject({
     basic: '유효하지 않은 주문입니다.',
     duplicate: '중복된 메뉴가 있습니다.',
@@ -45,9 +52,9 @@ const MESSAGE = freezeObject({
     NO_ONLY_BEVERAGE_MESSAGE,
     NUMBER_OF_ORDER_MESSAGE,
     MAX_TOTAL_NUMBER_OF_ORDER_MESSAGE,
-    `총주문 금액 ${new Money(
-      EVENT_THRESHOLD.minPurchaseForEvent,
-    ).getValue()} 이상부터 이벤트가 적용돼요.`,
+    `총주문 금액 ${EVENT_THRESHOLD.minPurchaseForEvent.toLocaleString(
+      'ko-KR',
+    )}${CURRENCY_UNIT}이상부터 이벤트가 적용돼요.`,
   ]),
   event: freezeObject({
     preview: freezeObject({

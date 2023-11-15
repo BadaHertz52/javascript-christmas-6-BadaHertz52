@@ -43,6 +43,7 @@
 <details>
 <summary>파일 구조 보기</summary>
 <div markdown="1">
+  
 ```
 📦src
  ┣ 📂constants
@@ -86,6 +87,7 @@
  ┃ ┗ 📜OutputView.js
  ┣ 📜App.js
  ┗ 📜index.js
+ 
 ```
 </div>
 </details>

@@ -3,7 +3,6 @@ const FOOD_TYPE = freezeObject({
   appetizer: 'appetizer',
   main: 'main',
   dessert: 'dessert',
-
   beverage: 'beverage',
 });
 const MENUS = freezeObject(
@@ -37,4 +36,41 @@ const getFoods = () => {
 
 const FOOD_ARRAY = freezeObject(getFoods());
 
-export { MENUS, FOOD_ARRAY, FOOD_TYPE };
+const getMenusByType = () => {
+  let appetizer = [];
+  let main = [];
+  let dessert = [];
+  let beverage = [];
+
+  MENUS.forEach((value) => {
+    switch (value.type) {
+      case FOOD_TYPE.appetizer:
+        appetizer.push(value);
+        break;
+      case FOOD_TYPE.main:
+        main.push(value);
+        break;
+      case FOOD_TYPE.dessert:
+        dessert.push(value);
+        break;
+      case FOOD_TYPE.beverage:
+        beverage.push(value);
+        break;
+      default:
+        break;
+    }
+  });
+
+  return {
+    appetizer: appetizer,
+    main: main,
+    dessert: dessert,
+    beverage: beverage,
+  };
+};
+/**
+ * 종류별로 메뉴를 정리한 변수
+ */
+const MENUS_BY_TYPE = getMenusByType();
+
+export { FOOD_ARRAY, FOOD_TYPE, MENUS, MENUS_BY_TYPE };

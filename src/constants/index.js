@@ -20,7 +20,7 @@ import {
   QUERY,
 } from './Message.js';
 
-import { MENUS, FOOD_ARRAY, FOOD_TYPE } from './Menu.js';
+import { FOOD_ARRAY, FOOD_TYPE, MENUS, MENUS_BY_TYPE } from './Menu.js';
 
 import {
   DATE_REGEX_PATTERN,
@@ -54,6 +54,7 @@ export {
   GIFT_EVENT,
   NONE,
   MENUS,
+  MENUS_BY_TYPE,
   MENU_DELIMITER,
   MENU_UNIT,
   MESSAGE,

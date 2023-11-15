@@ -7,6 +7,7 @@ import {
   OUTPUT_HEADER_MESSAGE,
 } from '../constants/index.js';
 import { getEventPreviewMessage } from '../utils/index.js';
+import { Money } from '../models/index.js';
 
 const OutputView = {
   print(string) {
@@ -17,6 +18,13 @@ const OutputView = {
   },
   printGreetings() {
     this.print(MESSAGE.greetings);
+    this.printBlankLine();
+  },
+  printMenuByType(header, array) {
+    this.print(`<${header}>`);
+    array.forEach((v) =>
+      this.print(`${v.food}  ${new Money(v.price).getValue()}`),
+    );
     this.printBlankLine();
   },
   printEventPreview(date) {

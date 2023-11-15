@@ -24,6 +24,8 @@ class App {
     await this.#getReservationDate();
     //이벤트 주의 사항 안내
     OutputView.printNotesOnEvent();
+    //메뉴판 출력
+    OutputController.controlPrintMenuByType();
     // 주문
     await this.#getOrder();
     OutputView.printEventPreview(this.#reservation.date);

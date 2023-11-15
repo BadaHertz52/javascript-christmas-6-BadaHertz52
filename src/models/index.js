@@ -14,8 +14,6 @@ import Order from './Order.js';
 
 import OrderedMenu from './OrderedMenu.js';
 
-import Money from './Money.js';
-
 import ReservationDate from './ReservationDate.js';
 
 export {
@@ -24,7 +22,6 @@ export {
   Order,
   OrderedMenu,
   GiftEvent,
-  Money,
   ReservationDate,
   SpecialEvent,
   WeekDayEvent,

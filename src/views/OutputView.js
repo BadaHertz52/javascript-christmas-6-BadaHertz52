@@ -7,7 +7,7 @@ import {
   OUTPUT_HEADER_MESSAGE,
 } from '../constants/index.js';
 import { getEventPreviewMessage } from '../utils/index.js';
-import { Money } from '../models/index.js';
+import { Money } from '../controllers/index.js';
 
 const OutputView = {
   print(string) {

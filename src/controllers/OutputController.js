@@ -1,5 +1,5 @@
 import { FOOD_TYPE, MENUS_BY_TYPE, NONE } from '../constants/index.js';
-import { Money } from '../models/index.js';
+import { Money } from '../controllers/index.js';
 import { isGift } from '../utils/index.js';
 import { OutputView } from '../views/index.js';
 

@@ -37,7 +37,7 @@ describe('이벤트 테스트', () => {
       const benefits = eventController.getBenefits();
       OutputController.controlPrintBenefits(benefits);
 
-      expect(benefits).toEqual([]);
+      expect(benefits).toBeUndefined();
       expectLogContains(getOutput(logSpy), MESSAGE);
     });
 
@@ -59,7 +59,7 @@ describe('이벤트 테스트', () => {
       );
       const benefits = eventController.getBenefits();
 
-      expect(!!benefits[0]).toBeTruthy();
+      expect(benefits).toBeTruthy();
     });
   });
 
@@ -181,12 +181,11 @@ describe('이벤트 테스트', () => {
       const MENUS = ['티본스테이크-1', '타파스-1', '아이스크림-1'];
       const orderList = getOrderList(MENUS);
 
-      const eventController = new EventController(
+      const benefits = new EventController(
         DATE,
         AMOUNT_BEFORE_DISCOUNT,
         orderList,
-      );
-      const benefits = eventController.getBenefits();
+      ).getBenefits();
 
       expect(
         benefits.every((v) => !NOT_TARGET_EVENTS.includes(v.event)),

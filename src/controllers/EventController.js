@@ -9,7 +9,10 @@ import {
 
 class EventController {
   #isEventApplied = false;
-  #benefits = [];
+  /**
+   * @type Benefits
+   */
+  #benefits = undefined;
   constructor(date, order, amountOfBeforeDiscount) {
     this.#isEventTarget(amountOfBeforeDiscount);
     if (this.#isEventApplied) {
@@ -26,7 +29,12 @@ class EventController {
       this.#isEventApplied = true;
   }
   #addBenefit(discount, event) {
-    if (discount) this.#benefits.push({ event: event, discount: discount });
+    if (discount) {
+      const newBenefit = { event: event, discount: discount };
+      this.#benefits
+        ? this.#benefits.push(newBenefit)
+        : (this.#benefits = [newBenefit]);
+    }
   }
   #getXmasDDayDiscount(date) {
     const discount = new XmasDDayEvent(date).getDiscount();
@@ -50,7 +58,7 @@ class EventController {
   }
   /**
    *
-   * @returns {{ event: string, benefit: number|string }[]}
+   * @returns {Benefits}
    */
   getBenefits() {
     return this.#benefits;

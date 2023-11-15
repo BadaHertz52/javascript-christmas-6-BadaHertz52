@@ -20,7 +20,7 @@ const OutputController = {
     return `${benefits.event}: ${discountMoney}`;
   },
   controlPrintBenefits(benefits) {
-    const messages = benefits[0]
+    const messages = benefits
       ? benefits.map((v) => this.getBenefitMessage(v))
       : [NONE];
     OutputView.printBenefits(messages);

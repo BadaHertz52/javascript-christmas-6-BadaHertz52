@@ -1,9 +1,8 @@
-import { GIFT_EVENT } from '../constants';
+import { GIFT_EVENT } from '../constants/index.js';
 
 class Calculator {
   /**
-   *
-   * @param {{ food:string, type:string, price:number, numberOfOrder:number}[]} order : ;
+   * @param {Order} order
    */
   calculateAmountBeforeDiscount(order) {
     return order.reduce((accumulator, currentValue) => {
@@ -13,14 +12,21 @@ class Calculator {
   }
   /**
    *
-   * @param {{ event: string, discount: number }[]} benefits
+   * @param {Benefits} benefits
    */
   calculateTotalBenefitAmount(benefits) {
-    return benefits.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.discount,
-      0,
-    );
+    return !benefits
+      ? 0
+      : benefits.reduce(
+          (accumulator, currentValue) => accumulator + currentValue.discount,
+          0,
+        );
   }
+  /**
+   * @param {number} amountBeforeDiscount
+   * @param {number} totalBenefitAmount
+   * @param {boolean} isGift
+   */
   calculateAmountAfterDiscount(
     amountBeforeDiscount,
     totalBenefitAmount,

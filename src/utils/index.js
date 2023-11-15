@@ -4,7 +4,7 @@ import {
   getNumberOfEventTargetMenu,
 } from './EventUtils.js';
 
-import { freezeObject, freezeFood, freezeFoodType } from './Freeze.js';
+import { freezeObject, freezeFood } from './Freeze.js';
 
 import {
   getEventPreviewMessage,
@@ -17,7 +17,6 @@ import { testRegExp } from './RegexFactory.js';
 export {
   freezeObject,
   freezeFood,
-  freezeFoodType,
   getEventPreviewMessage,
   getNumberOfEventTargetMenu,
   getOrderErrorMessage,

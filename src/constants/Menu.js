@@ -1,10 +1,12 @@
 import { freezeFood, freezeObject } from '../utils/Freeze.js';
+
 const FOOD_TYPE = freezeObject({
   appetizer: 'appetizer',
   main: 'main',
   dessert: 'dessert',
   beverage: 'beverage',
 });
+
 const MENUS = freezeObject(
   new Map([
     //애피타이저
@@ -60,7 +62,6 @@ const getMenusByType = () => {
         break;
     }
   });
-
   return {
     appetizer: appetizer,
     main: main,

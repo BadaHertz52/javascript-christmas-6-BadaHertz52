@@ -13,6 +13,12 @@ class EventController {
    * @type Benefits
    */
   #benefits = undefined;
+  /**
+   *
+   * @param {number} date
+   * @param {Order} order
+   * @param {number} amountOfBeforeDiscount
+   */
   constructor(date, order, amountOfBeforeDiscount) {
     this.#isEventTarget(amountOfBeforeDiscount);
     if (this.#isEventApplied) {
@@ -28,6 +34,10 @@ class EventController {
     if (amountBeforeDiscount >= EVENT_THRESHOLD.minPurchaseForEvent)
       this.#isEventApplied = true;
   }
+  /**
+   * @param {undefined|number} discount
+   * @param {"크리스마시 디데이 할인"|"평일 할인"|"주말 할인"|"특별 할인"|"증정 이벤트" }event
+   */
   #addBenefit(discount, event) {
     if (discount) {
       const newBenefit = { event: event, discount: discount };
@@ -40,10 +50,18 @@ class EventController {
     const discount = new XmasDDayEvent(date).getDiscount();
     this.#addBenefit(discount, EVENT_NAMES.xmasDDayEvent);
   }
+  /**
+   * @param {number} date
+   * @param {Order} order
+   */
   #getWeekDayDiscount(date, order) {
     const discount = new WeekDayEvent(date, order).getDiscount();
     this.#addBenefit(discount, EVENT_NAMES.weekDayEvent);
   }
+  /**
+   * @param {number} date
+   * @param {Order} order
+   */
   #getWeekendDiscount(date, order) {
     const discount = new WeekendEvent(date, order).getDiscount();
     this.#addBenefit(discount, EVENT_NAMES.weekendEvent);

@@ -1,6 +1,10 @@
 import { BADGE_SHAPE, EVENT_THRESHOLD } from '../constants/index.js';
 
 class Badge {
+  /**
+   * @type undefined|{ name: BadgeName; icon: string };
+   * @description type BadgeName = '산타' | '트리' | '별';
+   */
   #shape;
   constructor(totalBenefitAmount) {
     this.#isSanta(totalBenefitAmount);
@@ -9,7 +13,7 @@ class Badge {
   }
   /**
    *
-   * @param {"santa"|"tree"|"star"} shape
+   * @param {"santa"|"tree"|"star"} name
    * @param {number} totalBenefitAmount
    */
   #setShape(shape, totalBenefitAmount) {

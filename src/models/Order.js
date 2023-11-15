@@ -11,16 +11,17 @@ import { CustomError, OrderedMenu } from './index.js';
 class Order {
   /**
    * @type string[]|undefined
+   * @description 사용자가 입력한 주문을 ","로 나눈 배열
    */
   #formatArray;
   /**
-   *@type undefined | { food:string, type:string, price:number, numberOfOrder:number}[]
-   * 주문 목록
+   *@type undefined | Order
+   * @description 주문 목록
    */
   #list;
   /**
    * @type string[]
-   * 주문한 음식명 배열
+   * @description 주문한 음식명 배열
    */
   #orderedFoods;
 

@@ -4,6 +4,10 @@ import { isGift } from '../utils/index.js';
 import { OutputView } from '../views/index.js';
 
 const OutputController = {
+  /**
+   *
+   * @param {Benefits} benefits
+   */
   controlPrintGift(benefits) {
     OutputView.printGift(isGift(benefits));
   },
@@ -15,10 +19,18 @@ const OutputController = {
     OutputView.printMenuByType('🧁' + BLANK + FOOD_TYPE.dessert, dessert);
     OutputView.printMenuByType('🥤' + BLANK + FOOD_TYPE.beverage, beverage);
   },
+  /**
+   *
+   * @param {Benefits} benefits
+   */
   getBenefitMessage(benefits) {
     const discountMoney = new Money(benefits.discount, true).getValue();
     return `${benefits.event}: ${discountMoney}`;
   },
+  /**
+   *
+   * @param {Benefits} benefits
+   */
   controlPrintBenefits(benefits) {
     const messages = benefits
       ? benefits.map((v) => this.getBenefitMessage(v))

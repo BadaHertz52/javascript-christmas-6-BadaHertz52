@@ -16,9 +16,9 @@ const isInEventDays = (date, eventDays) => {
 };
 /**
  *
- * @param  {{food:string, type:string, price:number, numberOfOrder:number}[]} order : ;
+ * @param {Order} order : ;
  * @param {'dessert'|'main'} eventTargetFoodType
- * @returns
+ * @returns eventTargetFoodType에 해당하는 메뉴 개수의 합
  */
 const getNumberOfEventTargetMenu = (order, eventTargetFoodType) => {
   return order
@@ -32,6 +32,7 @@ const getNumberOfEventTargetMenu = (order, eventTargetFoodType) => {
  *
  * @param {Benefits} benefits
  * @returns boolean
+ * @description 이벤트 혜택에 증정품이 포함되어 있는지 여부를 반환
  */
 const isGift = (benefits) => {
   return benefits

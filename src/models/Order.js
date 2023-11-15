@@ -6,8 +6,8 @@ import {
   THRESHOLD,
 } from '../constants/index.js';
 import { testRegExp, getOrderErrorMessage } from '../utils/index.js';
-import { CustomError, OrderedMenu } from './index.js';
-
+import { OrderedMenu } from './index.js';
+import CustomError from '../customError/index.js';
 class Order {
   /**
    * @type string[]|undefined

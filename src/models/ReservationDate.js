@@ -1,6 +1,6 @@
 import { DATE_REGEX_PATTERN } from '../constants/RegexPattern.js';
 import { getReservationDateErrorMessage, testRegExp } from '../utils/index.js';
-import { CustomError } from './index.js';
+import CustomError from '../customError/index.js';
 
 class ReservationDate {
   constructor(string) {

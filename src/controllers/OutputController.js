@@ -29,7 +29,10 @@ const OutputController = {
   controlPrintBadge(badge) {
     const message = !badge ? NONE : badge.name;
     OutputView.printBadge(message);
-    if (badge) OutputView.print(`${badge.icon}🎁`);
+    const extraMessage = badge
+      ? `❄️  ❄️  ${badge.icon} 배지 🎁  ❄️  ❄️`
+      : '❄️  ❄️  ❄️  ☃️  ❄️  ❄️  ❄️';
+    OutputView.print(extraMessage);
   },
 };
 export default OutputController;

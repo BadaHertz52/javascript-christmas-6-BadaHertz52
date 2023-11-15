@@ -1,4 +1,8 @@
-import { isInEventDays, getNumberOfEventTargetMenu } from './EventUtils.js';
+import {
+  isGift,
+  isInEventDays,
+  getNumberOfEventTargetMenu,
+} from './EventUtils.js';
 
 import { freezeObject, freezeFood, freezeFoodType } from './Freeze.js';
 
@@ -18,6 +22,7 @@ export {
   getNumberOfEventTargetMenu,
   getOrderErrorMessage,
   getReservationDateErrorMessage,
+  isGift,
   isInEventDays,
   testRegExp,
 };

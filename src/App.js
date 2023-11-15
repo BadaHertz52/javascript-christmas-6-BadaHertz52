@@ -1,4 +1,3 @@
-import { EVENT_NAMES } from './constants/EventRule.js';
 import {
   Calculator,
   EventController,
@@ -6,6 +5,7 @@ import {
   OutputController,
 } from './controllers/index.js';
 import Badge from './models/Badge.js';
+import { isGift } from './utils/index.js';
 
 import { OutputView } from './views/index.js';
 
@@ -81,21 +81,17 @@ class App {
       amountOfBeforeDiscount,
     ).getBenefits();
   }
-  #setTotalBenefitAmount(benefit) {
+  #setTotalBenefitAmount(benefits) {
     this.#reservation.totalBenefitAmount =
-      new Calculator().calculateTotalBenefitAmount(benefit);
+      new Calculator().calculateTotalBenefitAmount(benefits);
   }
-  #hasGift(benefit) {
-    return benefit.some((v) => v.event === EVENT_NAMES.giftEvent);
-  }
-  #setAmountAfterDiscount(benefit) {
+  #setAmountAfterDiscount(benefits) {
     const { amountOfBeforeDiscount, totalBenefitAmount } = this.#reservation;
-    const isGift = this.#hasGift(benefit);
     this.#reservation.amountOfAfterDiscount =
       new Calculator().calculateAmountAfterDiscount(
         amountOfBeforeDiscount,
         totalBenefitAmount,
-        isGift,
+        isGift(benefits),
       );
   }
   #setBadge() {

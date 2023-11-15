@@ -23,9 +23,9 @@ describe('증정 이벤트 테스트', () => {
       AMOUNT_BEFORE_DISCOUNT,
     );
 
-    const benefit = eventController.getBenefits();
+    const benefits = eventController.getBenefits();
 
-    OutputController.controlPrintGift(benefit);
+    OutputController.controlPrintGift(benefits);
 
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('없음'));
   });
@@ -50,10 +50,11 @@ describe('증정 이벤트 테스트', () => {
       AMOUNT_BEFORE_DISCOUNT,
     );
 
-    const benefit = eventController.getBenefits();
-    const discount = benefit.filter((v) => v.event === EVENT_NAMES.giftEvent)[0]
-      .discount;
-    OutputController.controlPrintGift(benefit);
+    const benefits = eventController.getBenefits();
+    const discount = benefits.filter(
+      (v) => v.event === EVENT_NAMES.giftEvent,
+    )[0].discount;
+    OutputController.controlPrintGift(benefits);
 
     expect(discount).toBe(25000);
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('샴페인 1개'));

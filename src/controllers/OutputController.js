@@ -1,16 +1,11 @@
-import {
-  EVENT_NAMES,
-  FOOD_TYPE,
-  MENUS_BY_TYPE,
-  NONE,
-} from '../constants/index.js';
+import { FOOD_TYPE, MENUS_BY_TYPE, NONE } from '../constants/index.js';
 import { Money } from '../models/index.js';
+import { isGift } from '../utils/index.js';
 import { OutputView } from '../views/index.js';
 
 const OutputController = {
   controlPrintGift(benefits) {
-    const isGift = benefits.some((v) => v.event === EVENT_NAMES.giftEvent);
-    OutputView.printGift(isGift);
+    OutputView.printGift(isGift(benefits));
   },
   controlPrintMenuByType() {
     const { appetizer, main, dessert, beverage } = MENUS_BY_TYPE;
@@ -20,9 +15,9 @@ const OutputController = {
     OutputView.printMenuByType('🧁' + BLANK + FOOD_TYPE.dessert, dessert);
     OutputView.printMenuByType('🥤' + BLANK + FOOD_TYPE.beverage, beverage);
   },
-  getBenefitMessage(benefit) {
-    const discountMoney = new Money(benefit.discount, true).getValue();
-    return `${benefit.event}: ${discountMoney}`;
+  getBenefitMessage(benefits) {
+    const discountMoney = new Money(benefits.discount, true).getValue();
+    return `${benefits.event}: ${discountMoney}`;
   },
   controlPrintBenefits(benefits) {
     const messages = benefits[0]

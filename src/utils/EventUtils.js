@@ -1,4 +1,4 @@
-import { DAYS, EVENT_YEAR_AND_MONTH } from '../constants/index.js';
+import { DAYS, EVENT_NAMES, EVENT_YEAR_AND_MONTH } from '../constants/index.js';
 /**
  *
  * @param {number} date
@@ -28,5 +28,14 @@ const getNumberOfEventTargetMenu = (order, eventTargetFoodType) => {
       0,
     );
 };
-
-export { isInEventDays, getNumberOfEventTargetMenu };
+/**
+ *
+ * @param {Benefits} benefits
+ * @returns boolean
+ */
+const isGift = (benefits) => {
+  return benefits
+    ? benefits.some((v) => v.event === EVENT_NAMES.giftEvent)
+    : false;
+};
+export { isGift, isInEventDays, getNumberOfEventTargetMenu };

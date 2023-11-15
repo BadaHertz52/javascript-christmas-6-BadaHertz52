@@ -1,6 +1,6 @@
 import { GIFT_EVENT } from '../constants/index.js';
 
-class Calculator {
+const Calculator = {
   /**
    * @param {Order} order
    */
@@ -9,7 +9,7 @@ class Calculator {
       const { price, numberOfOrder } = currentValue;
       return accumulator + price * numberOfOrder;
     }, 0);
-  }
+  },
   /**
    *
    * @param {Benefits} benefits
@@ -21,7 +21,7 @@ class Calculator {
           (accumulator, currentValue) => accumulator + currentValue.discount,
           0,
         );
-  }
+  },
   /**
    * @param {number} amountBeforeDiscount
    * @param {number} totalBenefitAmount
@@ -34,7 +34,7 @@ class Calculator {
   ) {
     const giftDiscount = isGift ? GIFT_EVENT.discount : 0;
     return amountBeforeDiscount - (totalBenefitAmount - giftDiscount);
-  }
-}
+  },
+};
 
 export default Calculator;

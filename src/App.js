@@ -68,7 +68,7 @@ class App {
     this.#reservation.order = order;
   }
   #setAmountBeforeDiscount() {
-    const value = new Calculator().calculateAmountBeforeDiscount(
+    const value = Calculator.calculateAmountBeforeDiscount(
       this.#reservation.order,
     );
     this.#reservation.amountOfBeforeDiscount = value;
@@ -83,12 +83,12 @@ class App {
   }
   #setTotalBenefitAmount(benefits) {
     this.#reservation.totalBenefitAmount =
-      new Calculator().calculateTotalBenefitAmount(benefits);
+      Calculator.calculateTotalBenefitAmount(benefits);
   }
   #setAmountAfterDiscount(benefits) {
     const { amountOfBeforeDiscount, totalBenefitAmount } = this.#reservation;
     this.#reservation.amountOfAfterDiscount =
-      new Calculator().calculateAmountAfterDiscount(
+      Calculator.calculateAmountAfterDiscount(
         amountOfBeforeDiscount,
         totalBenefitAmount,
         isGift(benefits),

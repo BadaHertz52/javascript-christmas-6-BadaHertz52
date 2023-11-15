@@ -26,7 +26,7 @@ describe('계산 테스트', () => {
       const ORDER_LIST = getOrderList(MENUS);
       const EXPECTED_AMOUNT = 142000;
 
-      const result = new Calculator().calculateAmountBeforeDiscount(ORDER_LIST);
+      const result = Calculator.calculateAmountBeforeDiscount(ORDER_LIST);
 
       expect(result).toBe(EXPECTED_AMOUNT);
     });
@@ -38,7 +38,7 @@ describe('계산 테스트', () => {
         makeBenefit(EVENT_NAMES.giftEvent, 25000),
       ];
       const TOTAL_BENEFIT_AMOUNT = 31246;
-      const result = new Calculator().calculateTotalBenefitAmount(BENEFITS);
+      const result = Calculator.calculateTotalBenefitAmount(BENEFITS);
 
       expect(result).toBe(TOTAL_BENEFIT_AMOUNT);
     });
@@ -48,7 +48,7 @@ describe('계산 테스트', () => {
       const TOTAL_BENEFIT_AMOUNT = 31246;
       const AMOUNT_AFTER_DISCOUNT = 135754;
       const IS_GIFT = true;
-      const result = new Calculator().calculateAmountAfterDiscount(
+      const result = Calculator.calculateAmountAfterDiscount(
         AMOUNT_BEFORE_DISCOUNT,
         TOTAL_BENEFIT_AMOUNT,
         IS_GIFT,

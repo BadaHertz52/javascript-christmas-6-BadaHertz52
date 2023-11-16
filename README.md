@@ -5,6 +5,10 @@
 우테코6기 4주차 [미션](https://github.com/woowacourse-precourse/javascript-christmas-6)에 대한 과제입니다.
 단일 책임 원칙, MVC 디자인 패턴 적용, 도메인 로직 중심의 코드 구현과 테스트 코드 구현을 목표로 삼았습니다.
 
+### 실행 화면
+
+<img src="./readImages/크리스마스_실행.gif" alt="실행화면" width="450">
+
 ### 도메인 로직과 UI 로직
 
 제가 생각하는 이번 과제의 도메인 로직와 UI 로직은 다음과 같습니다
@@ -128,19 +132,33 @@ type Order ={ food:string, type:FoodType, price:number, numberOfOrder:number}[]
 
 ```typescript
 type Event =
-  | '크리스마스 디데이 할인'
-  | '평일 할인'
-  | '주말 할인'
-  | '특별 할인'
-  | '증정 이벤트';
+  | "크리스마스 디데이 할인"
+  | "평일 할인"
+  | "주말 할인"
+  | "특별 할인"
+  | "증정 이벤트";
 type Benefits = { event: EventType; discount: number }[] | undefined;
 ```
 
 ### badge
 
 ```typescript
-type BadgeName = '산타' | '트리' | '별';
+type BadgeName = "산타" | "트리" | "별";
 type Badge = { name: BadgeName; icon: string };
+```
+
+## 설치 및 실행
+
+### 설치
+
+```dash
+npm i
+```
+
+### 실행
+
+```
+node ./src/index.js
 ```
 
 ## 공부

@@ -3,10 +3,6 @@ class CustomError extends Error {
     super(message);
     this.name = name;
     this.message = message;
-    this.throwError();
-  }
-  throwError() {
-    throw this;
   }
 }
 export default CustomError;

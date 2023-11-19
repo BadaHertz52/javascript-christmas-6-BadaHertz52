@@ -4,6 +4,11 @@ import { isGift } from '../utils/index.js';
 import { OutputView } from '../views/index.js';
 
 const OutputController = {
+  controlPrintError(error) {
+    const { message } = error;
+    OutputView.print(message);
+    OutputView.printBlankLine();
+  },
   /**
    *
    * @param {Benefits} benefits

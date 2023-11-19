@@ -1,5 +1,6 @@
 import {
   getRandomDate,
+  getRandomReservationDate,
   getRandomSpecialDate,
   getRandomDateNotSpecialEvent,
   getRandomWeekDay,
@@ -23,6 +24,7 @@ export {
   getOrderList,
   getOutput,
   getRandomDate,
+  getRandomReservationDate,
   getRandomSpecialDate,
   getRandomDateNotSpecialEvent,
   getRandomWeekDay,

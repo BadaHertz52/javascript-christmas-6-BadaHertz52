@@ -1,12 +1,12 @@
-import Calculator from './Calculator.js';
 import EventController from './EventController.js';
+import ErrorController from './ErrorController.js';
 import Money from './Money.js';
 import OutputController from './OutputController.js';
 import InputController from './InputController.js';
 
 export {
-  Calculator,
   EventController,
+  ErrorController,
   InputController,
   Money,
   OutputController,

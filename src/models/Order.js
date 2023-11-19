@@ -6,8 +6,9 @@ import {
   THRESHOLD,
 } from '../constants/index.js';
 import { testRegExp, getOrderErrorMessage } from '../utils/index.js';
-import { OrderedMenu } from './index.js';
-import CustomError from '../customError/index.js';
+import OrderedMenu from './OrderedMenu.js';
+import { ErrorController } from '../controllers/index.js';
+
 class Order {
   /**
    * @type string[]|undefined
@@ -56,7 +57,7 @@ class Order {
    */
   #makeError(errorDetail) {
     const errorMessage = getOrderErrorMessage(errorDetail);
-    new CustomError('order error', errorMessage);
+    new ErrorController('order error', errorMessage).throwError();
   }
   #validateOrderFormat() {
     if (!this.#isSuitableOrderFormat()) this.#makeError('wrongOrderFormat');

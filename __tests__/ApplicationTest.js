@@ -1,6 +1,6 @@
 import App from "../src/App.js";
 
-import { mockQuestions, getLogSpy, getOutput, expectLogContains ,LINE_SEPARATOR } from '../testUtils/index.js'
+import { mockQuestions, getLogSpy, getOutput, expectLogContains ,LINE_SEPARATOR } from '../testUtils'
 
 describe("기능 테스트", () => {
   test("모든 타이틀 출력", async () => {

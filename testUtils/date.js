@@ -36,6 +36,7 @@ const getRandomDateNotSpecialEvent = () => {
 
 export {
   getRandomDate,
+  getRandomReservationDate,
   getRandomSpecialDate,
   getRandomDateNotSpecialEvent,
   getRandomWeekDay,

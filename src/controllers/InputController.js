@@ -1,5 +1,6 @@
 import { Order, ReservationDate } from '../models/index.js';
-import { InputView, OutputView } from '../views/index.js';
+import { InputView } from '../views/index.js';
+import OutputController from './OutputController.js';
 
 const InputController = {
   async getValidReservationDate() {
@@ -7,13 +8,12 @@ const InputController = {
     while (!date) {
       try {
         const value = await InputView.readDate();
-        new ReservationDate(value);
-        date = value;
+        date = new ReservationDate(value).getDate();
       } catch (error) {
-        OutputView.print(error.message);
+        OutputController.controlPrintError(error);
       }
     }
-    return Number(date);
+    return date;
   },
   async getValidOrder() {
     let order;
@@ -22,7 +22,7 @@ const InputController = {
         const value = await InputView.readOrder();
         order = new Order(value).getList();
       } catch (error) {
-        OutputView.print(error.message);
+        OutputController.controlPrintError(error);
       }
     }
     return order;

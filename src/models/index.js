@@ -1,5 +1,7 @@
 import Badge from './Badge.js';
 
+import CustomError from './CustomError.js';
+import Calculator from './Calculator.js';
 import {
   GiftEvent,
   SpecialEvent,
@@ -16,6 +18,8 @@ import ReservationDate from './ReservationDate.js';
 
 export {
   Badge,
+  Calculator,
+  CustomError,
   Order,
   OrderedMenu,
   GiftEvent,

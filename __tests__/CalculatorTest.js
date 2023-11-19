@@ -1,6 +1,6 @@
 import App from '../src/App';
 import { EVENT_NAMES } from '../src/constants';
-import { Calculator } from '../src/controllers';
+import { Calculator } from '../src/models';
 import {
   getLogSpy,
   getOrderList,

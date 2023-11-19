@@ -1,10 +1,9 @@
 import {
-  Calculator,
   EventController,
   InputController,
   OutputController,
 } from './controllers/index.js';
-import Badge from './models/Badge.js';
+import {Badge, Calculator} from './models/index.js';
 import { isGift } from './utils/index.js';
 
 import { OutputView } from './views/index.js';

@@ -58,7 +58,6 @@
  ┃ ┣ 📜RegexPattern.js
  ┃ ┗ 📜Rule.js
  ┣ 📂controllers
- ┃ ┣ 📜ErrorController.js
  ┃ ┣ 📜EventController.js
  ┃ ┣ 📜index.js
  ┃ ┣ 📜InputController.js

@@ -7,7 +7,7 @@ import {
 } from '../constants/index.js';
 import { testRegExp, getOrderErrorMessage } from '../utils/index.js';
 import OrderedMenu from './OrderedMenu.js';
-import { ErrorController } from '../controllers/index.js';
+import CustomError from './CustomError.js';
 
 class Order {
   /**
@@ -57,7 +57,7 @@ class Order {
    */
   #makeError(errorDetail) {
     const errorMessage = getOrderErrorMessage(errorDetail);
-    new ErrorController('order error', errorMessage).throwError();
+    throw new CustomError('order error', errorMessage);
   }
   #validateOrderFormat() {
     if (!this.#isSuitableOrderFormat()) this.#makeError('wrongOrderFormat');

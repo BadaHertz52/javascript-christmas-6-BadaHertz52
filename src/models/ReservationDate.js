@@ -1,5 +1,5 @@
 import { DATE_REGEX_PATTERN } from '../constants/RegexPattern.js';
-import { ErrorController } from '../controllers/index.js';
+import CustomError from './CustomError.js';
 import { getReservationDateErrorMessage, testRegExp } from '../utils/index.js';
 
 class ReservationDate {
@@ -14,7 +14,7 @@ class ReservationDate {
   #validateDate(string) {
     const message = getReservationDateErrorMessage();
     if (!this.#isSuitableForDate(string))
-      new ErrorController('reservation date error', message).throwError();
+      throw new CustomError('reservation date error', message);
   }
   #setDate(string) {
     const date = Number(string);

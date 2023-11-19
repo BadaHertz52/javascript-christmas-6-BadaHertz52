@@ -100,19 +100,19 @@
 
 #### 예약 방문일, 메뉴 주문 받기 및 유효성 검사
 
-<img src="./readImages/입력값.png" alt="입력에 대한 순서도" width="250px">
+<img src="./readmeImages/입력값.png" alt="입력에 대한 순서도" width="250px">
 
 #### 이벤트 혜택 적용 판단
 
-<img src="./readImages/이벤트.png" alt="이벤트에 대한 순서도" width="300px">
+<img src="./readmeImages/이벤트.png" alt="이벤트에 대한 순서도" width="300px">
 
 #### 금액 계산 (할인 전 구매 금액, 총 혜택금액, 할인 후 예상 결제 금액)
 
-<img src="./readImages/계산.png" alt="계산에 대한 순서도" width="300px">
+<img src="./readmeImages/계산.png" alt="계산에 대한 순서도" width="300px">
 
 #### 배지 적용 여부 판단
 
-<img src="./readImages/배지.png" alt="배지에 대한 순서도" width="300px">
+<img src="./readmeImages/배지.png" alt="배지에 대한 순서도" width="300px">
 
 ## 매개변수 타입 정리
 

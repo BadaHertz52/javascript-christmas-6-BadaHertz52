@@ -58,14 +58,12 @@
  ┃ ┣ 📜RegexPattern.js
  ┃ ┗ 📜Rule.js
  ┣ 📂controllers
- ┃ ┣ 📜Calculator.js
+ ┃ ┣ 📜ErrorController.js
  ┃ ┣ 📜EventController.js
  ┃ ┣ 📜index.js
  ┃ ┣ 📜InputController.js
  ┃ ┣ 📜Money.js
  ┃ ┗ 📜OutputController.js
- ┣ 📂customError
- ┃ ┗ 📜index.js
  ┣ 📂models
  ┃ ┣ 📂events
  ┃ ┃ ┣ 📜GiftEvent.js
@@ -75,6 +73,8 @@
  ┃ ┃ ┣ 📜WeekendEvent.js
  ┃ ┃ ┗ 📜XmasDDayEvent.js
  ┃ ┣ 📜Badge.js
+ ┃ ┣ 📜Calculator.js
+ ┃ ┣ 📜CustomError.js
  ┃ ┣ 📜index.js
  ┃ ┣ 📜Order.js
  ┃ ┣ 📜OrderedMenu.js
@@ -132,18 +132,18 @@ type Order ={ food:string, type:FoodType, price:number, numberOfOrder:number}[]
 
 ```typescript
 type Event =
-  | "크리스마스 디데이 할인"
-  | "평일 할인"
-  | "주말 할인"
-  | "특별 할인"
-  | "증정 이벤트";
+  | '크리스마스 디데이 할인'
+  | '평일 할인'
+  | '주말 할인'
+  | '특별 할인'
+  | '증정 이벤트';
 type Benefits = { event: EventType; discount: number }[] | undefined;
 ```
 
 ### badge
 
 ```typescript
-type BadgeName = "산타" | "트리" | "별";
+type BadgeName = '산타' | '트리' | '별';
 type Badge = { name: BadgeName; icon: string };
 ```
 

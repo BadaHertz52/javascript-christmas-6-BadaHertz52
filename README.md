@@ -7,7 +7,7 @@
 
 ### 실행 화면
 
-<img src="./readImages/크리스마스_실행.gif" alt="실행화면" width="450">
+<img src="./readmeImages/크리스마스_실행.gif" alt="실행화면" width="450">
 
 ### 도메인 로직과 UI 로직
 

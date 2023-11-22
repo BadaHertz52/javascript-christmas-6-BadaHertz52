@@ -10,23 +10,23 @@ import {
 class EventController {
   #isEventApplied = false;
   /**
-   * @type Benefits
+   * @type {undefined |{ event:   | '크리스마스 디데이 할인'| '평일 할인'| '주말 할인'| '특별 할인'| '증정 이벤트'; discount: number}[]};
    */
-  #benefits = undefined;
+  #benefits;
   /**
    *
    * @param {number} date
    * @param {Order} order
-   * @param {number} amountOfBeforeDiscount
+   * @param {number} amountBeforeDiscount
    */
-  constructor(date, order, amountOfBeforeDiscount) {
-    this.#isEventTarget(amountOfBeforeDiscount);
+  constructor(date, order, amountBeforeDiscount) {
+    this.#isEventTarget(amountBeforeDiscount);
     if (this.#isEventApplied) {
       this.#getXmasDDayDiscount(date);
       this.#getWeekDayDiscount(date, order);
       this.#getWeekendDiscount(date, order);
       this.#getSpecialDiscount(date);
-      this.#getGiftBenefit(amountOfBeforeDiscount);
+      this.#getGiftBenefit(amountBeforeDiscount);
     }
   }
   //이벤트 적용 여부 판단

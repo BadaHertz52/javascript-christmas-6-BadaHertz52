@@ -3,6 +3,7 @@ import { GIFT_EVENT } from '../constants/index.js';
 const Calculator = {
   /**
    * @param {Order} order
+   * @returns {number}
    */
   calculateAmountBeforeDiscount(order) {
     return order.reduce((accumulator, currentValue) => {
@@ -13,6 +14,7 @@ const Calculator = {
   /**
    *
    * @param {Benefits} benefits
+   * @returns {number}
    */
   calculateTotalBenefitAmount(benefits) {
     return !benefits
@@ -26,6 +28,7 @@ const Calculator = {
    * @param {number} amountBeforeDiscount
    * @param {number} totalBenefitAmount
    * @param {boolean} isGift
+   * @returns {number}
    */
   calculateAmountAfterDiscount(
     amountBeforeDiscount,

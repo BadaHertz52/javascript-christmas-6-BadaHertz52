@@ -56,19 +56,16 @@ class App {
     const reservationController = new ReservationController();
     this.#reservation =await reservationController.getReservation()
   };
-
   #printReservation() {
     OutputView.printEventPreview(this.#reservation.date);
     OutputView.printOrder(this.#reservation.order);
   }
-
   // 할인 전 구매금액
   #setAmountBeforeDiscount() {
     const value = CalculatorController.getAmountBeforeDiscount(this.#reservation.order);
 
     this.#amount.amountBeforeDiscount = value;
   };
-
   // 할인 혜택
   #setEventBenefits() {
     const { date, order } = this.#reservation;
@@ -79,12 +76,10 @@ class App {
       amountBeforeDiscount,
     ).getBenefits();
   }
-
   #printEventBenefits(){
     OutputController.controlPrintGift(this.#benefits);
     OutputController.controlPrintBenefits(this.#benefits);
   }
-
   //할인 이후 금액들(총 혜택 금액 , 할인 후 결제 금액) 
   #updateAmountAfterDiscount(){
     const amountsAfterDiscount = CalculatorController.getAmountsAfterDiscount(this.#benefits, this.#amount);
@@ -93,7 +88,6 @@ class App {
       ...this.#amount,
       ...amountsAfterDiscount
   }}
-
   #printAmountsAfterDiscount(){
     const {totalBenefitAmount ,amountAfterDiscount} = this.#amount;
 
@@ -107,7 +101,7 @@ class App {
       amountAfterDiscount,
     );
   }
-
+  //배지
   #setBadge() {
     const badge = new Badge(this.#amount.totalBenefitAmount).getShape();
     if (badge) this.#badge = badge;

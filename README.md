@@ -58,11 +58,13 @@
  ┃ ┣ 📜RegexPattern.js : 정규표현식의 패턴 관리
  ┃ ┗ 📜Rule.js : 유효성 검사등에 쓰이는 형식에 대한 매직넘버등의 상수 관리
  ┣ 📂controllers
+ ┃ ┣ 📜CalculatorController.js : 방문일, 주문서,할인 혜택을 받아서 Calculator에게 넘겨 금액들(할인전 금액, 총 혜택 금액, 할인 후 예상 결제액)에 대한 값을 반환 
  ┃ ┣ 📜EventController.js : 주문 입력값를 이벤트 모델들에게 넘겨 이벤트 혜택 여부를 판단하고 혜택 리스트를 반환
  ┃ ┣ 📜index.js
  ┃ ┣ 📜InputController.js : 입력값을 받아 해당 입력값에 대한 유효성 검사를 진행하는 모델에게 넘기고 유효한 값을 반환
  ┃ ┣ 📜Money.js : 금액을 알맞은 출력 메세지로 변경해 반환
- ┃ ┗ 📜OutputController.js : 값을 받아서 알맞을 출력 메세지로 변환해 Output에세 전달해 메세지를 출력
+ ┃ ┣ 📜OutputController.js: 값을 받아서 알맞을 출력 메세지로 변환해 Output에세 전달해 메세지를 출력
+ ┃ ┗ 📜ReservationController.js :InputController을 이용해 예약 방문일, 주문을 받아서 이를 반환
  ┣ 📂models
  ┃ ┣ 📂events : 이벤트 적용에 대한 판단과 할인 금액 반환
  ┃ ┃ ┣ 📜GiftEvent.js

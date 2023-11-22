@@ -10,7 +10,8 @@ import {
 class EventController {
   #isEventApplied = false;
   /**
-   * @type {undefined |{ event:   | '크리스마스 디데이 할인'| '평일 할인'| '주말 할인'| '특별 할인'| '증정 이벤트'; discount: number}[]};
+   * @type {undefined|Benefits};
+   * @description  type Benefits ={ event:   | '크리스마스 디데이 할인'| '평일 할인'| '주말 할인'| '특별 할인'| '증정 이벤트'; discount: number}[]
    */
   #benefits;
   /**
@@ -30,6 +31,10 @@ class EventController {
     }
   }
   //이벤트 적용 여부 판단
+  /**
+   *
+   * @param {number} amountBeforeDiscount
+   */
   #isEventTarget(amountBeforeDiscount) {
     if (amountBeforeDiscount >= EVENT_THRESHOLD.minPurchaseForEvent)
       this.#isEventApplied = true;
@@ -46,6 +51,10 @@ class EventController {
         : (this.#benefits = [newBenefit]);
     }
   }
+  /**
+   *
+   * @param {number} date
+   */
   #getXmasDDayDiscount(date) {
     const discount = new XmasDDayEvent(date).getDiscount();
     this.#addBenefit(discount, EVENT_NAMES.xmasDDayEvent);
@@ -76,7 +85,7 @@ class EventController {
   }
   /**
    *
-   * @returns {Benefits}
+   * @returns {Benefits|undefined}
    */
   getBenefits() {
     return this.#benefits;

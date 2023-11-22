@@ -3,10 +3,13 @@ import { InputController, OutputController } from './index.js';
 
 class ReservationController {
   /**
-   * @type {{date:number|undefined; order:{ food:FoodName; type:'appetizer'|'main'|'dessert'|'beverage'; price:number; numberOfOrder:number}[]}}
+   * @type {{date:number|undefined; order:Order|undefined}}
 
-   * @description type FoodName ="양송이스푸"|"타파스"|....|"샴페인"; 
-
+   * @description 
+      type FoodName ="양송이스푸"|"타파스"|....|"샴페인";
+      type FoodType ='appetizer'|'main'|'dessert'|'beverage' ;
+      type OrderMenu ={ food:string, type:FoodType, price:number, numberOfOrder:number};
+      type Order =OrderMenu[];
    */
   #reservation = {
     date: undefined,
@@ -15,7 +18,6 @@ class ReservationController {
   constructor() {
     OutputView.printGreetings();
   }
-
   async #getReservationDate() {
     const date = await InputController.getValidReservationDate();
     this.#reservation.date = date;
@@ -26,16 +28,19 @@ class ReservationController {
     //메뉴판 출력
     OutputController.controlPrintMenuByType();
   }
-
   async #getOrder() {
     this.#readyToGetOrder();
     const order = await InputController.getValidOrder();
     this.#reservation.order = order;
   }
-
+  /**
+   *
+   * @returns {Promise<{date:number|undefined; order:Order|undefined}>}
+   */
   async getReservation() {
     await this.#getReservationDate();
     await this.#getOrder();
+
     return this.#reservation;
   }
 }

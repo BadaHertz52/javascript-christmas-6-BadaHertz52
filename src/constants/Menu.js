@@ -6,7 +6,10 @@ const FOOD_TYPE = freezeObject({
   dessert: 'dessert',
   beverage: 'beverage',
 });
-
+/**
+ * @type {Map<FoodName,{ food:FoodName, type:FoodType, price:number}>}
+ * @description type FoodName ="양송이스푸"|"타파스"|....|"샴페인"; type FoodType ='appetizer'|'main'|'dessert'|'beverage' ;
+ */
 const MENUS = freezeObject(
   new Map([
     //애피타이저
@@ -35,7 +38,9 @@ const getFoods = () => {
   }
   return array;
 };
-
+/**
+ * @type {FoodName[]}
+ */
 const FOOD_ARRAY = freezeObject(getFoods());
 
 const getMenusByType = () => {
@@ -71,6 +76,7 @@ const getMenusByType = () => {
 };
 /**
  * 종류별로 메뉴를 정리한 변수
+ * @type {{ appetizer:{ food:FoodName, type:FoodType, price:number}[]; main:{ food:FoodName, type:FoodType, price:number}[] ; dessert: { food:FoodName, type:FoodType, price:number}[]; beverage: { food:FoodName, type:FoodType, price:number}[]}}
  */
 const MENUS_BY_TYPE = getMenusByType();
 

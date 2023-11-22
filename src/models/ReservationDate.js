@@ -3,7 +3,14 @@ import CustomError from './CustomError.js';
 import { getReservationDateErrorMessage, testRegExp } from '../utils/index.js';
 
 class ReservationDate {
+  /**
+   * @type {number|undefined}
+   */
   #date;
+  /**
+   *
+   * @param {string} string
+   */
   constructor(string) {
     this.#validateDate(string);
     this.#setDate(string);

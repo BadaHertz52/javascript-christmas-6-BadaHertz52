@@ -10,6 +10,10 @@ import { getEventPreviewMessage } from '../utils/index.js';
 import { Money } from '../controllers/index.js';
 
 const OutputView = {
+  /**
+   *
+   * @param {string} string : 출력한 문구
+   */
   print(string) {
     Console.print(string);
   },
@@ -20,13 +24,22 @@ const OutputView = {
     this.print(MESSAGE.greetings);
     this.printBlankLine();
   },
-  printMenuByType(header, array) {
-    this.print(`<${header}>`);
+  /**
+   *
+   * @param {'appetizer'| 'main'| 'dessert'| 'beverage'} header  : 메누의 타입
+   * @param {{ food:FoodName, type:FoodType, price:number}[]} array :
+   */
+  printMenuByType(menuType, array) {
+    this.print(`<${menuType}>`);
     array.forEach((v) =>
       this.print(`${v.food}  ${new Money(v.price).getValue()}`),
     );
     this.printBlankLine();
   },
+  /**
+   *
+   * @param {number} date
+   */
   printEventPreview(date) {
     this.printBlankLine();
     this.print(getEventPreviewMessage(date));
@@ -40,7 +53,7 @@ const OutputView = {
   },
   /**
    *
-   * @param {{food:string, type:string, price:number ,numberOfOrder: number}[]} order : ;
+   * @param {Order} order :
    */
   printOrder(order) {
     this.printBlankLine();
@@ -52,7 +65,7 @@ const OutputView = {
   /**
    *
    * @param {'amountBeforeDiscount'|'totalBenefitAmount'|'amountAfterDiscount'} type
-   * @param {*} money
+   * @param {string} money
    */
   printAmount(type, amount) {
     this.printBlankLine();
@@ -62,16 +75,28 @@ const OutputView = {
   printNone() {
     this.print(NONE);
   },
+  /**
+   *
+   * @param {string[]} benefitMessages
+   */
   printBenefits(benefitMessages) {
     this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE.benefits);
     benefitMessages.forEach((v) => this.print(v));
   },
+  /**
+   *
+   * @param {boolean} isGift
+   */
   printGift(isGift) {
     this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE.gift);
     this.print(isGift ? GIFT : NONE);
   },
+  /**
+   *
+   * @param {string} message : 배지를 수여할 경우 배지 모양, 그렇지 않을 경우에는 "없음"
+   */
   printBadge(message) {
     this.printBlankLine();
     this.print(OUTPUT_HEADER_MESSAGE.badge);

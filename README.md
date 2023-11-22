@@ -122,7 +122,8 @@
 ```typescript
 type FoodName ="양송이스푸"|"타파스"|....|"샴페인";
 type FoodType ='appetizer'|'main'|'dessert'|'beverage' ;
-type Order ={ food:string, type:FoodType, price:number, numberOfOrder:number}[]
+type OrderMenu ={ food:string, type:FoodType, price:number, numberOfOrder:number};
+type Order =OrderMenu[];
 ````
 
 ### benefits

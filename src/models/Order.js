@@ -21,7 +21,7 @@ class Order {
    */
   #list;
   /**
-   * @type string[]
+   * @type FoodName[]
    * @description 주문한 음식명 배열
    */
   #orderedFoods;
@@ -66,10 +66,15 @@ class Order {
     const pass = this.#list.every((v) => {
       const numberOfOrder = v.numberOfOrder;
       const { min, max } = THRESHOLD.numberOfOrder;
+
       return numberOfOrder >= min && numberOfOrder <= max;
     });
     if (!pass) this.#makeError('wrongNumberOfOrder');
   }
+  /**
+   *
+   * @returns {number}
+   */
   getTotalNumberOfOrder() {
     return this.#list.reduce(
       (accumulator, currentValue) => accumulator + currentValue.numberOfOrder,

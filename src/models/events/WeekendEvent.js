@@ -7,7 +7,11 @@ import {
 class WeekendEvent {
   #isEventApplied = false;
   #numberOfTargetMenu;
-
+  /**
+   *
+   * @param {number} date
+   * @param {Order} order
+   */
   constructor(date, order) {
     this.#isEventTargetDay(date);
     this.#setNumberOfEventTargetMenu(order);
@@ -25,6 +29,7 @@ class WeekendEvent {
   }
   getDiscount() {
     if (!this.#isEventApplied || !this.#numberOfTargetMenu) return;
+
     return this.#numberOfTargetMenu * WEEKEND_EVENT.discount;
   }
 }

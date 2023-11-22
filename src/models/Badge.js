@@ -29,6 +29,10 @@ class Badge {
   #isStar(totalBenefitAmount) {
     this.#setShape('star', totalBenefitAmount);
   }
+  /**
+   * @returns {undefined|{ name: BadgeName; icon: string }}
+   * @description type BadgeName = '산타' | '트리' | '별';
+   */
   getShape() {
     return this.#shape;
   }

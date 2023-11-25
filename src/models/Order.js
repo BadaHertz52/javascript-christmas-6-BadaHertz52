@@ -37,6 +37,7 @@ class Order {
     this.#isDuplicate();
     this.#hasOnlyBeverage();
   }
+
   #setFormatArray(string) {
     this.#formatArray = string.split(MENU_DELIMITER);
   }
@@ -52,7 +53,6 @@ class Order {
     );
   }
   /**
-   *
    * @param {'duplicate'|'maxTotalNumberOfOrder'|'none'|'noOnlyBeverage'|'wrongOrderFormat'|'wrongNumberOfOrder'} errorDetail
    */
   #makeError(errorDetail) {
@@ -72,7 +72,6 @@ class Order {
     if (!pass) this.#makeError('wrongNumberOfOrder');
   }
   /**
-   *
    * @returns {number}
    */
   getTotalNumberOfOrder() {

@@ -8,8 +8,8 @@ class WeekDayEvent {
   #isEventApplied = false;
   /**@type {number|undefined} */
   #numberOfTargetMenu;
+
   /**
-   *
    * @param {number} date
    * @param {Order} order
    */
@@ -17,6 +17,7 @@ class WeekDayEvent {
     this.#isEventTargetDay(date);
     this.#setNumberOfEventTargetMenu(order);
   }
+
   #isEventTargetDay(date) {
     if (isInEventDays(date, WEEK_DAY_EVENT.period.days))
       this.#isEventApplied = true;
@@ -29,7 +30,6 @@ class WeekDayEvent {
     );
   }
   /**
-   *
    * @returns {number|undefined}
    */
   getDiscount() {

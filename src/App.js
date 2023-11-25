@@ -1,4 +1,3 @@
-
 import {
   CalculatorController,
   EventController,
@@ -34,22 +33,13 @@ class App {
     totalBenefitAmount: undefined,
   };
   #badge ;
+  
   async run() {
-    //예약
-    await this.#setReservation();
-    this.#printReservation();
-    //할인 전 총 금액
-    this.#setAmountBeforeDiscount();
-    OutputController.controlPrintAmount('amountBeforeDiscount', this.#amount.amountBeforeDiscount);
-    //이벤트 적용
-    this.#setEventBenefits();
-    this.#printEventBenefits();
-    // 할인 후 금액들 계산
-    this.#updateAmountAfterDiscount();
-    this.#printAmountsAfterDiscount();
-    //배지
-    this.#setBadge();
-    OutputController.controlPrintBadge(this.#badge);
+    await this.#takeReservation();
+    this.#workOnAmountBeforeDiscount();
+    this.#workOnEventBenefits();
+    this.#workOnAmountsAfterDiscount();
+    this.#workOnBadge();
   }
   //예약 방문일, 주문
   async #setReservation(){
@@ -60,12 +50,20 @@ class App {
     OutputView.printEventPreview(this.#reservation.date);
     OutputView.printOrder(this.#reservation.order);
   }
+  async #takeReservation (){
+    await this.#setReservation();
+    this.#printReservation();
+  }
   // 할인 전 구매금액
   #setAmountBeforeDiscount() {
     const value = CalculatorController.getAmountBeforeDiscount(this.#reservation.order);
 
     this.#amount.amountBeforeDiscount = value;
   };
+  #workOnAmountBeforeDiscount(){
+    this.#setAmountBeforeDiscount();
+    OutputController.controlPrintAmount('amountBeforeDiscount', this.#amount.amountBeforeDiscount);
+  }
   // 할인 혜택
   #setEventBenefits() {
     const { date, order } = this.#reservation;
@@ -79,6 +77,10 @@ class App {
   #printEventBenefits(){
     OutputController.controlPrintGift(this.#benefits);
     OutputController.controlPrintBenefits(this.#benefits);
+  }
+  #workOnEventBenefits(){
+    this.#setEventBenefits();
+    this.#printEventBenefits();
   }
   //할인 이후 금액들(총 혜택 금액 , 할인 후 결제 금액) 
   #updateAmountAfterDiscount(){
@@ -100,11 +102,19 @@ class App {
       'amountAfterDiscount',
       amountAfterDiscount,
     );
+  };
+  #workOnAmountsAfterDiscount(){
+    this.#updateAmountAfterDiscount();
+    this.#printAmountsAfterDiscount();
   }
   //배지
   #setBadge() {
     const badge = new Badge(this.#amount.totalBenefitAmount).getShape();
     if (badge) this.#badge = badge;
+  }
+  #workOnBadge(){
+    this.#setBadge();
+    OutputController.controlPrintBadge(this.#badge);
   }
 }
 

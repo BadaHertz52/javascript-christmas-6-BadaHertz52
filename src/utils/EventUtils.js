@@ -1,6 +1,5 @@
 import { DAYS, EVENT_NAMES, EVENT_YEAR_AND_MONTH } from '../constants/index.js';
 /**
- *
  * @param {number} date
  * @returns {'sun'| 'mon'| 'tue'| 'wed'| 'thu'| 'fri'| 'sat'}
  */
@@ -11,7 +10,6 @@ const getDay = (date) => {
 };
 
 /**
- *
  * @param {number} date
  * @param {number[]} eventDays
  * @returns {boolean}
@@ -22,7 +20,6 @@ const isInEventDays = (date, eventDays) => {
   return eventDays.includes(day);
 };
 /**
- *
  * @param {Order} order : ;
  * @param {'dessert'|'main'} eventTargetFoodType
  * @returns {number} eventTargetFoodType에 해당하는 메뉴 개수의 합
@@ -36,7 +33,6 @@ const getNumberOfEventTargetMenu = (order, eventTargetFoodType) => {
     );
 };
 /**
- *
  * @param {Benefits} benefits
  * @returns {boolean}
  * @description 이벤트 혜택에 증정품이 포함되어 있는지 여부를 반환

@@ -11,7 +11,6 @@ import { Money } from '../controllers/index.js';
 
 const OutputView = {
   /**
-   *
    * @param {string} string : 출력한 문구
    */
   print(string) {
@@ -25,7 +24,6 @@ const OutputView = {
     this.printBlankLine();
   },
   /**
-   *
    * @param {'appetizer'| 'main'| 'dessert'| 'beverage'} header  : 메누의 타입
    * @param {{ food:FoodName, type:FoodType, price:number}[]} array :
    */
@@ -37,7 +35,6 @@ const OutputView = {
     this.printBlankLine();
   },
   /**
-   *
    * @param {number} date
    */
   printEventPreview(date) {
@@ -52,7 +49,6 @@ const OutputView = {
     this.printBlankLine();
   },
   /**
-   *
    * @param {Order} order :
    */
   printOrder(order) {
@@ -63,7 +59,6 @@ const OutputView = {
     );
   },
   /**
-   *
    * @param {'amountBeforeDiscount'|'totalBenefitAmount'|'amountAfterDiscount'} type
    * @param {string} money
    */
@@ -76,7 +71,6 @@ const OutputView = {
     this.print(NONE);
   },
   /**
-   *
    * @param {string[]} benefitMessages
    */
   printBenefits(benefitMessages) {
@@ -85,7 +79,6 @@ const OutputView = {
     benefitMessages.forEach((v) => this.print(v));
   },
   /**
-   *
    * @param {boolean} isGift
    */
   printGift(isGift) {
@@ -94,7 +87,6 @@ const OutputView = {
     this.print(isGift ? GIFT : NONE);
   },
   /**
-   *
    * @param {string} message : 배지를 수여할 경우 배지 모양, 그렇지 않을 경우에는 "없음"
    */
   printBadge(message) {

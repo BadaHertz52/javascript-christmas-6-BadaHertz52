@@ -6,13 +6,14 @@ class Badge {
    * @description type BadgeName = '산타' | '트리' | '별';
    */
   #shape;
+
   constructor(totalBenefitAmount) {
     this.#isSanta(totalBenefitAmount);
     this.#isTree(totalBenefitAmount);
     this.#isStar(totalBenefitAmount);
   }
+
   /**
-   *
    * @param {"santa"|"tree"|"star"} name
    * @param {number} totalBenefitAmount
    */

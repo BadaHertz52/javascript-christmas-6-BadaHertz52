@@ -1,7 +1,6 @@
 import { ERROR_MESSAGE, MESSAGE } from '../constants/index.js';
 
 /**
- *
  * @returns {string} 예약 방문일 오류 문구
  */
 const getReservationDateErrorMessage = () => {
@@ -10,7 +9,6 @@ const getReservationDateErrorMessage = () => {
 };
 
 /**
- *
  * @param {'duplicate'|'maxTotalNumberOfOrder'|'none'|'noOnlyBeverage'|'wrongOrderFormat'|'wrongNumberOfOrder'} errorDetail
  * @returns {string} 주문 오류 문구
  */
@@ -19,7 +17,6 @@ const getOrderErrorMessage = (errorDetail) => {
   return `${header} ${order.basic} ${reInput} ${order[errorDetail]}`;
 };
 /**
- *
  * @param {number} date
  * @returns {string} 이벤트 미리 보기 문구
  */

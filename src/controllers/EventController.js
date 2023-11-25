@@ -14,8 +14,8 @@ class EventController {
    * @description  type Benefits ={ event:   | '크리스마스 디데이 할인'| '평일 할인'| '주말 할인'| '특별 할인'| '증정 이벤트'; discount: number}[]
    */
   #benefits;
+
   /**
-   *
    * @param {number} date
    * @param {Order} order
    * @param {number} amountBeforeDiscount
@@ -30,9 +30,8 @@ class EventController {
       this.#getGiftBenefit(amountBeforeDiscount);
     }
   }
-  //이벤트 적용 여부 판단
+
   /**
-   *
    * @param {number} amountBeforeDiscount
    */
   #isEventTarget(amountBeforeDiscount) {

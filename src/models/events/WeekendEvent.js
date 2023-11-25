@@ -7,8 +7,8 @@ import {
 class WeekendEvent {
   #isEventApplied = false;
   #numberOfTargetMenu;
+
   /**
-   *
    * @param {number} date
    * @param {Order} order
    */
@@ -16,6 +16,7 @@ class WeekendEvent {
     this.#isEventTargetDay(date);
     this.#setNumberOfEventTargetMenu(order);
   }
+
   #isEventTargetDay(date) {
     const pass = isInEventDays(date, WEEKEND_EVENT.period.days);
     if (pass) this.#isEventApplied = true;

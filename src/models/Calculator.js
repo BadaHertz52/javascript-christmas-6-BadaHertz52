@@ -12,7 +12,6 @@ const Calculator = {
     }, 0);
   },
   /**
-   *
    * @param {Benefits} benefits
    * @returns {number}
    */

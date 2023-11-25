@@ -7,14 +7,15 @@ class ReservationDate {
    * @type {number|undefined}
    */
   #date;
+
   /**
-   *
    * @param {string} string
    */
   constructor(string) {
     this.#validateDate(string);
     this.#setDate(string);
   }
+
   #isSuitableForDate(string) {
     return testRegExp(DATE_REGEX_PATTERN, string);
   }

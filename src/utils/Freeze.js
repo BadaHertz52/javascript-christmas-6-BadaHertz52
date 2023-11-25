@@ -1,5 +1,4 @@
 /**
- *
  * @param {Object} object
  * @returns {Object} Object.freeze(Object)
  */

@@ -10,7 +10,6 @@ const OutputController = {
     OutputView.printBlankLine();
   },
   /**
-   *
    * @param {Benefits} benefits
    */
   controlPrintGift(benefits) {
@@ -25,7 +24,6 @@ const OutputController = {
     OutputView.printMenuByType('🥤' + BLANK + FOOD_TYPE.beverage, beverage);
   },
   /**
-   *
    * @param {Benefits} benefits
    */
   getBenefitMessage(benefits) {
@@ -33,7 +31,6 @@ const OutputController = {
     return `${benefits.event}: ${discountMoney}`;
   },
   /**
-   *
    * @param {Benefits} benefits
    */
   controlPrintBenefits(benefits) {

@@ -4,7 +4,6 @@ import { InputController, OutputController } from './index.js';
 class ReservationController {
   /**
    * @type {{date:number|undefined; order:Order|undefined}}
-
    * @description 
       type FoodName ="양송이스푸"|"타파스"|....|"샴페인";
       type FoodType ='appetizer'|'main'|'dessert'|'beverage' ;
@@ -15,9 +14,11 @@ class ReservationController {
     date: undefined,
     order: undefined,
   };
+
   constructor() {
     OutputView.printGreetings();
   }
+
   async #getReservationDate() {
     const date = await InputController.getValidReservationDate();
     this.#reservation.date = date;
@@ -34,13 +35,11 @@ class ReservationController {
     this.#reservation.order = order;
   }
   /**
-   *
    * @returns {Promise<{date:number|undefined; order:Order|undefined}>}
    */
   async getReservation() {
     await this.#getReservationDate();
     await this.#getOrder();
-
     return this.#reservation;
   }
 }

@@ -1,33 +1,6 @@
 import App from "../src/App.js";
-import { MissionUtils } from "@woowacourse/mission-utils";
-import { EOL as LINE_SEPARATOR } from "os";
 
-const mockQuestions = (inputs) => {
-  MissionUtils.Console.readLineAsync = jest.fn();
-
-  MissionUtils.Console.readLineAsync.mockImplementation(() => {
-    const input = inputs.shift();
-
-    return Promise.resolve(input);
-  });
-};
-
-const getLogSpy = () => {
-  const logSpy = jest.spyOn(MissionUtils.Console, "print");
-  logSpy.mockClear();
-
-  return logSpy;
-};
-
-const getOutput = (logSpy) => {
-  return [...logSpy.mock.calls].join(LINE_SEPARATOR);
-};
-
-const expectLogContains = (received, expectedLogs) => {
-  expectedLogs.forEach((log) => {
-    expect(received).toContain(log);
-  });
-};
+import { mockQuestions, getLogSpy, getOutput, expectLogContains ,LINE_SEPARATOR } from '../testUtils'
 
 describe("기능 테스트", () => {
   test("모든 타이틀 출력", async () => {
@@ -75,7 +48,7 @@ describe("예외 테스트", () => {
     const INVALID_DATE_MESSAGE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
     const INPUTS_TO_END = ["1", "해산물파스타-2"];
     const logSpy = getLogSpy();
-    mockQuestions(["a", ...INPUTS_TO_END]);
+    mockQuestions(["a","0","31"," ", , ...INPUTS_TO_END]);
 
     // when
     const app = new App();

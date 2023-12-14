@@ -1,7 +1,6 @@
-import { freezeObject } from '../utils/index.js';
 import { RESERVATION_PERIOD, SEPARATOR } from './Rule.js';
 
-const REG_EXP = freezeObject({
+const REG_EXP = Object.freeze({
   reservation: new RegExp(
     `^[${RESERVATION_PERIOD.start}-${RESERVATION_PERIOD.end}]$`,
   ),

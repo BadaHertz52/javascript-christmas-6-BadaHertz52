@@ -1,10 +1,10 @@
 import CustomError from '../CustomError.js';
 import { ERROR_MESSAGE } from '../constants/index.js';
 /**
- * @param {string} key ERROR_MESSAGE 속성의 key
+ * @param {"reservation"|"order"} key ERROR_MESSAGE 속성의 key
  */
 export const getErrorMessage = (key) => {
-  return `${ERROR_MESSAGE.basic} ${ERROR_MESSAGE[key]}`;
+  return ERROR_MESSAGE[key];
 };
 
 /**

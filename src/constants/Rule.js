@@ -1,4 +1,4 @@
-import { MENU } from './Menu';
+import { MENU } from './Menu.js';
 
 export const EVENT_MIN_AMOUNT = 10000;
 export const MIN_ORDER = 1;

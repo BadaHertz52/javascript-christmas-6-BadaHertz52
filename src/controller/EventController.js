@@ -1,11 +1,11 @@
-import { EVENT_MIN_AMOUNT } from '../constants';
+import { EVENT_MIN_AMOUNT } from '../constants/index.js';
 import {
   DDayEvent,
   GiftEvent,
   SpecialEvent,
   WeekdayEvent,
   WeekendEvent,
-} from '../model';
+} from '../model/index.js';
 
 class EventController {
   #isEventTarget = false;

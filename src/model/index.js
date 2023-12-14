@@ -1,12 +1,12 @@
-import Badge from './Badge';
-import Calculator from './Calculator';
-import DDayEvent from './DDayEvent';
-import GiftEvent from './GiftEvent';
-import Order from './Order';
-import Reservation from './Reservation';
-import SpecialEvent from './SpecialEvent';
-import WeekdayEvent from './WeekDayEvent';
-import WeekendEvent from './WeekendEvent';
+import Badge from './Badge.js';
+import Calculator from './Calculator.js';
+import DDayEvent from './DDayEvent.js';
+import GiftEvent from './GiftEvent.js';
+import Order from './Order.js';
+import Reservation from './Reservation.js';
+import SpecialEvent from './SpecialEvent.js';
+import WeekdayEvent from './WeekDayEvent.js';
+import WeekendEvent from './WeekendEvent.js';
 export {
   Badge,
   Calculator,

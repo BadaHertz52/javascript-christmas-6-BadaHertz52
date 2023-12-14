@@ -1,5 +1,4 @@
-import { NONE } from '../constants';
-import { BADGE } from '../constants/Rule';
+import { NONE, BADGE } from '../constants/index.js';
 
 class Badge {
   #badge = NONE;

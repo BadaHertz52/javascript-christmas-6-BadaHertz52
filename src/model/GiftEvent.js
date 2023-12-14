@@ -1,4 +1,4 @@
-import { EVENT } from '../constants';
+import { EVENT } from '../constants/index.js';
 
 class GiftEvent {
   #isEventTarget = false;

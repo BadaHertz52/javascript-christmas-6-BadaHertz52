@@ -1,4 +1,4 @@
-import { MENU } from '../constants';
+import { MENU } from '../constants/index.js';
 const Calculator = {
   /**
    * @param {{food:string,number: number}[]} order

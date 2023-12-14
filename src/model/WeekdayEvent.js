@@ -1,5 +1,5 @@
-import { EVENT, MENU } from '../constants';
-import { isInTargetPeriod } from '../utils';
+import { EVENT, MENU } from '../constants/index.js';
+import { isInTargetPeriod } from '../utils/index.js';
 
 class WeekdayEvent {
   #isInPeriod = false;

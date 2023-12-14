@@ -2,6 +2,7 @@ import { freezeObject } from '../utils/index.js';
 
 const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 export const EVENT_MIN_AMOUNT = 10000;
+export const MIN_ORDER = 1;
 export const MAX_ORDER = 20;
 export const RESERVATION_PERIOD = freezeObject({ start: 1, end: 31 });
 export const EVENT = freezeObject({

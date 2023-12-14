@@ -1,4 +1,5 @@
 import { freezeObject } from '../utils/index.js';
+import { MIN_ORDER, RESERVATION_PERIOD, SEPARATOR } from './Rule.js';
 
 export const NONE = '없음';
 export const DISCOUNT_SIGN = '-';
@@ -24,4 +25,14 @@ export const HEADER = freezeObject({
   totalBenefit: '<총혜택 금액>',
   afterDiscountAmount: '<할인 후 예상 결제 금액>',
   badge: '<12월 이벤트 배지>',
+});
+
+export const ERROR_MESSAGE = freezeObject({
+  basic: '[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.',
+  reservation: `${RESERVATION_PERIOD.start}~${RESERVATION_PERIOD.end}까지의 숫자중 하나를 사용하세요.`,
+  none: '메뉴판에 있는 메뉴만 주문 가능합니다.',
+  orderFormat: `메뉴 주문 형식에 맞추어 주문해주세요.(공백을 포함하지 않고 메뉴와 개수는 "${SEPARATOR.hyphen}로 주문한 메뉴는 ${SEPARATOR.comma}를 사용해 구분해주세요.")`,
+  minOrder: `메뉴의 개수는 ${MIN_ORDER}이상의 숫자만 입력되도록 해주세요.`,
+  maxOrder: '주문 가능한 메뉴의 총 개수는 20개입니다.',
+  duplicate: '중복된 메뉴가 있습니다.',
 });

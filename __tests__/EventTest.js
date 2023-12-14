@@ -1,5 +1,11 @@
 import { MissionUtils } from '@woowacourse/mission-utils';
-import { DDayEvent, GiftEvent, SpecialEvent, WeekdayEvent } from '../src/model';
+import {
+  Badge,
+  DDayEvent,
+  GiftEvent,
+  SpecialEvent,
+  WeekdayEvent,
+} from '../src/model';
 import { EventController } from '../src/controller';
 
 describe('할인 전 총 주문 금액이 10000원 이상일 경우, 이벤트별 적용 테스트', () => {
@@ -113,5 +119,20 @@ describe('할인 전 총 주문 금액에 따른  이벤트 적용 테스트', (
       special: 1000,
       gift: 25000,
     });
+  });
+});
+
+describe('이벤트 배지 테스트', () => {
+  test('총 혜택 금액인 5천원 미만이면 배지 없음', () => {
+    expect(new Badge(4500).getBadge()).toBe('없음');
+  });
+  test('총 혜택 금액인 5천원 이상이면 별 배지', () => {
+    expect(new Badge(5500).getBadge()).toBe('별');
+  });
+  test('총 혜택 금액인 만원원 이상 2만원 미만 이면 트리 배지 ', () => {
+    expect(new Badge(15500).getBadge()).toBe('트리');
+  });
+  test('총 혜택 금액인 2만원 이상 이면  산타 배지 ', () => {
+    expect(new Badge(20000).getBadge()).toBe('산타');
   });
 });

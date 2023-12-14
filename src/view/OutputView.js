@@ -24,7 +24,7 @@ const OutputView = {
     const message = order
       .map((v) => `${v.food} ${v.number}${UNIT.goods}\n`)
       .join('');
-    this.print(`\n${HEADER.menu}\n`);
+    this.print(`\n${HEADER.menu}`);
     this.print(message);
   },
   /**
@@ -44,11 +44,11 @@ const OutputView = {
 
    */
   printAmount(type, number, isDiscount) {
-    this.print(`\n${HEADER[type]}\n`);
+    this.print(`\n${HEADER[type]}`);
     this.print(`${this.changeNumberToMoney(number, isDiscount)}\n`);
   },
   printGift(gift) {
-    this.print(`\n${HEADER.gift}\n`);
+    this.print(`\n${HEADER.gift}`);
     this.print(gift ? EVENT.gift.goods : NONE);
   },
   /**
@@ -79,11 +79,11 @@ const OutputView = {
         `${EVENT.gift.name}: ${this.changeNumberToMoney(gift, true)}`,
       );
 
-    this.print(`\n${HEADER.benefit}\n`);
+    this.print(`\n${HEADER.benefit}`);
     message[0] ? this.print(message.join(`\n`)) : this.print(NONE);
   },
   printBadge(badge) {
-    this.print(`\n${HEADER.badge}\n`);
+    this.print(`\n${HEADER.badge}`);
     this.print(badge);
   },
 };

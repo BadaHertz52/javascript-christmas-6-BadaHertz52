@@ -1,5 +1,6 @@
+import {  EOL as LINE_SEPARATOR } from 'os';
 import App from "../src/App.js";
-import {getLogSpy, mockQuestions, getOutput ,expectLogContains} from '../src/utils/index.js';
+import {getLogSpy, mockQuestions, getOutput ,expectLogContains } from '../src/utils/index.js';
 
 describe("기능 테스트", () => {
   test("모든 타이틀 출력", async () => {

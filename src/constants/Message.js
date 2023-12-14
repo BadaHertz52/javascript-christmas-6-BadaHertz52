@@ -21,7 +21,7 @@ export const HEADER = Object.freeze({
   beforeDiscountAmount: '<할인 전 총주문 금액>',
   gift: '<증정 메뉴>',
   benefit: '<혜택 내역>',
-  totalBenefit: '<총혜택 금액>',
+  totalBenefits: '<총혜택 금액>',
   afterDiscountAmount: '<할인 후 예상 결제 금액>',
   badge: '<12월 이벤트 배지>',
 });

@@ -1,4 +1,5 @@
-const DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+import { MENU } from './Menu';
+
 export const EVENT_MIN_AMOUNT = 10000;
 export const MIN_ORDER = 1;
 export const MAX_ORDER = 20;
@@ -37,8 +38,7 @@ export const EVENT = Object.freeze({
   gift: {
     name: '증정 이벤트',
     period: RESERVATION_PERIOD,
-    //TODO -
-    discount: '샴페인 가격',
+    discount: MENU.get('샴페인').price,
     //할인 전 총주문 금액이 12만 원 이상일 때, 샴페인 1개 증정
     minAmount: 120000,
     goods: '샴페인 1개',
